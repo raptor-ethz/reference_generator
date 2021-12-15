@@ -13,18 +13,19 @@ int main() {
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
     // swoop 1
+
     Vec3 pos_ref(0, 1, 0.5);
     Vec3 vel_ref(0, 0, 0);
     Vec3 acc_ref(0, 0, 0);
 
-    quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 1.5);
+    quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 2);
 
     std::this_thread::sleep_for(std::chrono::seconds(2));
 
     // swoop 2
     pos_ref = Vec3(1.5, 1, 2);
 
-    quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 1.5);
+    quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 2);
 
     std::this_thread::sleep_for(std::chrono::seconds(2));
 

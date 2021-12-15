@@ -17,15 +17,15 @@ int main() {
   box.check_for_data();
 
   quad.go_to_pos(box.get_pose().pose.position.x, box.get_pose().pose.position.y,
-                 1.0, 0, 3000, false);
+                 1.5, 0, 3000, false);
 
   quad.go_to_pos(box.get_pose().pose.position.x, box.get_pose().pose.position.y,
-                 0.3, 0, 2000, false);
+                 0.5, 0, 2000, false);
 
   std::this_thread::sleep_for(std::chrono::seconds(2));
 
   quad.go_to_pos(box.get_pose().pose.position.x, box.get_pose().pose.position.y,
-                 1.0, 0, 3000, false);
+                 1.5, 0, 3000, false);
   // quad.go_to_pos(-1.5, 1, 2, 45, 2000, false);
 
   quad.land(stand);

@@ -37,9 +37,9 @@ int main() {
   quad.go_to_pos(box.get_pose().pose.position.x, box.get_pose().pose.position.y,
                  0.45, 0, 2000, false);
 
-  std::this_thread::sleep_for(std::chrono::seconds(1));
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   gripper.set_angle(5);
-  std::this_thread::sleep_for(std::chrono::seconds(1));
+  std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
   quad.go_to_pos(box.get_pose().pose.position.x, box.get_pose().pose.position.y,
                  1.5, 0, 3000, false);

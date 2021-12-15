@@ -15,7 +15,7 @@ int main() {
   quad.check_for_data();
   stand.check_for_data();
 
-  quad.go_to_pos(-1.5, 1, 2, 2000, false);
+  quad.go_to_pos(-1.5, 1, 2, 0, 2000, false);
 
   std::this_thread::sleep_for(std::chrono::seconds(2));
 

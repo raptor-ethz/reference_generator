@@ -1,12 +1,12 @@
 #include "Quad.h"
 
 int main() {
-    // FastDDS default participant
-    std::unique_ptr<DefaultParticipant> dp =
-        std::make_unique<DefaultParticipant>(0, "raptor");
+  // FastDDS default participant
+  std::unique_ptr<DefaultParticipant> dp =
+      std::make_unique<DefaultParticipant>(0, "raptor");
 
-    // create instance of quad
-    Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
+  // create instance of quad
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
 
     // creat instance of landing stand
     Item stand("Stand", dp, "mocap_srl_stand");
@@ -14,7 +14,7 @@ int main() {
     // go to inital position
     quad.go_to_pos(-2, 1, 2, 0, 2000, false);
 
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+  std::this_thread::sleep_for(std::chrono::seconds(2));
 
     //////////////////////////////////////////////////// swoop with mid_hold
     // swoop 1
@@ -22,7 +22,7 @@ int main() {
     Vec3 vel_ref(0, 0, 0);
     Vec3 acc_ref(0, 0, 0);
 
-    quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 2);
+  quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 2);
 
     std::cout   << "Midpoint: " << quad.get_pose().pose.position.z
                 << std::endl;
@@ -75,4 +75,6 @@ int main() {
     // go back to initial position
     quad.land(stand);
 
+  // go back to initial position
+  quad.go_to_pos(0, 0, 2, 0, 2000, false);
 }

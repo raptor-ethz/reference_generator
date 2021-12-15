@@ -82,7 +82,4 @@ int main() {
 
     // go back to initial position
     quad.land(stand);
-
-  // go back to initial position
-  quad.go_to_pos(0, 0, 2, 0, 2000, false);
 }

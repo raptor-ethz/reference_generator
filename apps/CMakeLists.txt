@@ -1,2 +1,3 @@
 add_subdirectory(land_in_stand)
 add_subdirectory(gripper_test)
+add_subdirectory(swoop_test)

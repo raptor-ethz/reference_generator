@@ -1,0 +1,1 @@
+add_executable(land_in_stand src/main.cpp)

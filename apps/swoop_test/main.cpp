@@ -69,6 +69,14 @@ int main() {
     // quad.go_to_pos_min_jerk(pos_ref, vel_ref, acc_ref, 2);
     //////////////////////////////////////////////////// swoop dynamic end
 
+    //////////////////////////////////////////////////// reached flag test
+    // // go to first position
+    // quad.go_to_pos(2, 1, 2, 0, 10000, true);
+
+    // // go to second position
+    // quad.go_to_pos(0, 0, 2, 0, 5000, true);
+    //////////////////////////////////////////////////// reached flag test end
+
     // wait before landing
     std::this_thread::sleep_for(std::chrono::seconds(2));
 

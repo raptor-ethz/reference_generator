@@ -7,12 +7,12 @@ int main() {
 
   Gripper gripper("Gripper", dp, "grip_cmd");
   while (true) {
+    std::cout << "setting angle to 0" << std::endl;
     gripper.set_angle(0);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
-    gripper.set_angle(30);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
-    gripper.set_angle(60);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    std::cout << "setting angle to 45" << std::endl;
+    gripper.set_angle(45);
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
   }
   return 0;
 }

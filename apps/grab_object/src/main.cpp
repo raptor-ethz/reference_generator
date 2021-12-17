@@ -25,22 +25,31 @@ int main() {
   // open gripper
   gripper.set_angle(45);
   // first swoop
-  quad.swoop(box, gripper, 2, 0, 0.05, 2, 2000);
+  quad.swoop(box, gripper, 2, 0, 0.02, 0, 2, 2000);
 
-  sleep_for(milliseconds(1000));
+  sleep_for(milliseconds(100));
 
   quad.release(drop, gripper, 1.5, 2, 2000);
 
-  sleep_for(milliseconds(1000));
+  sleep_for(milliseconds(100));
 
   // second swoop
-  quad.swoop(box, gripper, 2, 0, -0.25, 2, 2000);
+  quad.swoop(box, gripper, 2, 0, -0.2, -0.05, 2, 2000);
 
-  sleep_for(milliseconds(1000));
+  sleep_for(milliseconds(100));
 
   quad.release(drop, gripper, 1.5, 2, 2000);
 
-  sleep_for(milliseconds(1000));
+  sleep_for(milliseconds(100));
+
+  // third swoop
+  quad.swoop(box, gripper, 2, 0, +0.35, -0.05, 2, 2000);
+
+  sleep_for(milliseconds(100));
+
+  quad.release(drop, gripper, 1.5, 2, 2000);
+
+  sleep_for(milliseconds(100));
 
   gripper.set_angle(0);
 

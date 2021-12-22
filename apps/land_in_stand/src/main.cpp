@@ -12,9 +12,9 @@ int main() {
   // creat instance of stand
   Item stand("Stand", dp, "mocap_srl_stand");
 
-  quad.go_to_pos(-1.5, 1, 2, 0, 2000, false);
+  // quad.go_to_pos(-1.5, 1, 2, 0, 2000, false);
 
-  std::this_thread::sleep_for(std::chrono::seconds(2));
+  // std::this_thread::sleep_for(std::chrono::seconds(2));
 
   quad.land(stand);
 }

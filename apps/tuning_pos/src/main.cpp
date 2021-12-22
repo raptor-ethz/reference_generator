@@ -16,12 +16,14 @@ int main() {
   // check for data
   quad.check_for_data();
   stand.check_for_data();
+
+  const float z0 = 2.0;
   
   // go to initial position
-  quad.go_to_pos(-2.0, 1.0, 2.0, 0, 4000, false);
+  quad.go_to_pos(-2.0, 1.0, z0, 0, 4000, false);
 
   // move along + e_x
-  quad.go_to_pos(1.0, 1.0, 2.0, 0, 4000, false);
+  quad.go_to_pos(1.0, 1.0, z0, 0, 4000, false);
   std::cout << "Position: \t" << quad.get_pose().pose.position.x
             << '\t' << quad.get_pose().pose.position.y
             << '\t' << quad.get_pose().pose.position.z

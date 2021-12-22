@@ -33,23 +33,23 @@ int main() {
 
   sleep_for(milliseconds(100));
 
-  // second swoop
-  // quad.swoop(box, gripper, 2, 0, -0.2, -0.05, 2, 2000);
+  // // second swoop
+  // quad.swoop(box, gripper, 2, 0, -0.2, -0.05, 2, 2000,5);
 
-  sleep_for(milliseconds(100));
+  // sleep_for(milliseconds(100));
 
-  quad.release(drop, gripper, 1.5, 2, 2000);
+  // quad.release(drop, gripper, 1.5, 2, 2000);
 
-  sleep_for(milliseconds(100));
+  // sleep_for(milliseconds(100));
 
-  // third swoop
-  quad.swoop(box, gripper, 2, 0, +0.35, -0.05, 2, 2000, 5);
+  // // third swoop
+  // quad.swoop(box, gripper, 2, 0, +0.35, -0.05, 2, 2000, 5);
 
-  sleep_for(milliseconds(100));
+  // sleep_for(milliseconds(100));
 
-  quad.release(drop, gripper, 1.5, 2, 2000);
+  // quad.release(drop, gripper, 1.5, 2, 2000);
 
-  sleep_for(milliseconds(100));
+  // sleep_for(milliseconds(100));
 
   gripper.set_angle_sym(0);
 

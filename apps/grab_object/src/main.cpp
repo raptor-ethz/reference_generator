@@ -22,37 +22,17 @@ int main() {
   box.check_for_data();
   drop.check_for_data();
 
-  // // open gripper
-  // gripper.set_angle_sym(45);
   // first swoop
-  quad.quick_swoop(box, gripper, 2, 0.05, 0.02, 0, 2, 2000, 3);
+  quad.quick_swoop(box, gripper, 2, 0.05, 0.03, 0, 2, 100, 3);
+  quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
-  gripper.set_angle_sym(45);
-  sleep_for(milliseconds(500));
-  gripper.set_angle_sym(3);
-  // sleep_for(milliseconds(100));
+  // second swoop
+  quad.quick_swoop(box, gripper, 2, 0.05, 0.33, -0.04, 2, 200, 0);
+  quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
-  // quad.release(drop, gripper, 1.5, 2, 2000);
-
-  // sleep_for(milliseconds(100));
-
-  // // second swoop
-  // quad.swoop(box, gripper, 2, 0, -0.2, -0.05, 2, 2000,5);
-
-  // sleep_for(milliseconds(100));
-
-  // quad.release(drop, gripper, 1.5, 2, 2000);
-
-  // sleep_for(milliseconds(100));
-
-  // // third swoop
-  // quad.swoop(box, gripper, 2, 0, +0.35, -0.05, 2, 2000, 5);
-
-  // sleep_for(milliseconds(100));
-
-  // quad.release(drop, gripper, 1.5, 2, 2000);
-
-  // sleep_for(milliseconds(100));
+  // third swoop
+  quad.quick_swoop(box, gripper, 2, 0.05, -0.26, -0.01, 2, 100, 0);
+  quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
   gripper.set_angle_sym(0);
 

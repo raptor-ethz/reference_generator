@@ -22,16 +22,19 @@ int main() {
   box.check_for_data();
   drop.check_for_data();
 
-  // open gripper
-  gripper.set_angle_sym(45);
+  // // open gripper
+  // gripper.set_angle_sym(45);
   // first swoop
-  quad.swoop(box, gripper, 2, 0, 0.02, 0, 2, 2000, 5);
+  quad.quick_swoop(box, gripper, 2, 0.05, 0.02, 0, 2, 2000, 3);
 
-  sleep_for(milliseconds(100));
+  gripper.set_angle_sym(45);
+  sleep_for(milliseconds(500));
+  gripper.set_angle_sym(3);
+  // sleep_for(milliseconds(100));
 
-  quad.release(drop, gripper, 1.5, 2, 2000);
+  // quad.release(drop, gripper, 1.5, 2, 2000);
 
-  sleep_for(milliseconds(100));
+  // sleep_for(milliseconds(100));
 
   // // second swoop
   // quad.swoop(box, gripper, 2, 0, -0.2, -0.05, 2, 2000,5);

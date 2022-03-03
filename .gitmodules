@@ -1,3 +1,0 @@
-[submodule "lib/raptor_lib"]
-	path = lib/raptor_lib
-	url = https://github.com/raptor-ethz/raptor_lib.git

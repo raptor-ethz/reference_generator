@@ -1,4 +1,5 @@
-add_executable(a_star src/main.cpp)
+add_executable(a_star src/main.cpp include/graph.cpp)
+target_include_directories(a_star PUBLIC include)
 
 target_link_libraries(a_star PRIVATE
 comm_lib

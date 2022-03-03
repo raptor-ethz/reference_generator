@@ -6,29 +6,58 @@ using namespace std::this_thread;
 using namespace std::chrono;
 int main() {
   // FastDDS default participant
+  /* FASTDDS DEFAULT PARTICIPANT  */
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
 
-  // create participants
+  /* CREATE PARTICIPANTS */
   Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("Box", dp, "mocap_srl_box");
   //Item drop("drop", dp, "mocap_srl_drop");
   Gripper gripper("Gripper", dp, "grip_cmd");
+  /* END CREATE PARTICIPANTS */
 
-  // check for data (MOCAP)
+  /* CHECK MOCAP DATA */
   quad.check_for_data();
   stand.check_for_data();
   box.check_for_data();
   //drop.check_for_data();
 
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  /* END CHECK MOCAP DATA */
+
+  /* SETUP & TAKEOFF */
+  cpp_msg::Header px4_cmd;
+
+  // arm
+  std::cout << "[INFO] Arming Quad" << std::endl;
+  px4_cmd.id = "arm";
+  quad.px4_cmd_pub->publish(px4_cmd);
+  std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+
+  // takeoff
+  std::cout << "[INFO] Taking off" << std::endl;
+  px4_cmd.id = "takeoff";
+  quad.px4_cmd_pub->publish(px4_cmd);
+  std::this_thread::sleep_for(std::chrono::milliseconds(7000));
+
+  // offboard
+  std::cout << "[INFO] Start Offboard" << std::endl;
+  px4_cmd.id = "offboard";
+  quad.px4_cmd_pub->publish(px4_cmd);
+  std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+
+  std::cout << "[INFO] Fly Mission" << std::endl;
+  /* SETUP & TAKEOFF */
+
   // first swoop
   //quad.swoop(box,gripper,2,0,0,0,2,0,45);
-  for(int i=0; i<18; i++){
-     std::cout<<"FLIGHT_NR"<<i<<std::endl;
-    //quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.02, 2, 50, 3); //potato
+  //for(int i=0; i<1; i++){
+    
+    quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.02, 2, 50, 3); //potato
     //quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.035, 2, 50, 0); //box
-    quad.quick_swoop(box, gripper, 2, 0.05, 0.05, 0, 2, 50, 0); //paper_roll
+    // quad.quick_swoop(box, gripper, 2, 0.05, 0.05, 0, 2, 50, 0); //paper_roll
 
     gripper.set_angle_sym(60);
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -41,9 +70,9 @@ int main() {
     // std::this_thread::sleep_for(std::chrono::milliseconds(100));
     // gripper.set_angle_sym(5);
     
-    quad.go_to_pos(-2, 0.5, 2, 0, 4000, false);
-    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-  }
+  //   quad.go_to_pos(-2, 0.5, 2, 0, 4000, false);
+  //   std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+  // }
 
   // quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
@@ -56,6 +85,18 @@ int main() {
   // quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
   quad.land(stand);
+
+  std::cout << "[INFO] Terminate Offboard" << std::endl;
+
+  cpp_msg::QuadPositionCmd pos_cmd;
+  pos_cmd.header.id = "break";
+  quad.position_pub->publish(pos_cmd);
+
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+  std::cout << "[INFO] Disarming" << std::endl;
+  px4_cmd.id = "disarm";
+  quad.px4_cmd_pub->publish(px4_cmd);
 
   return 0;
 }

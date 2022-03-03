@@ -92,8 +92,6 @@ int main() {
   pos_cmd.header.id = "break";
   quad.position_pub->publish(pos_cmd);
 
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
   std::cout << "[INFO] Disarming" << std::endl;
   px4_cmd.id = "disarm";
   quad.px4_cmd_pub->publish(px4_cmd);

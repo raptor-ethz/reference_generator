@@ -24,14 +24,23 @@ int main() {
 
   // first swoop
   //quad.swoop(box,gripper,2,0,0,0,2,0,45);
-  for(int i=0; i<5; i++){
-    std::cout<<"FLIGHT_NR"<<i<<std::endl;
-    quad.quick_swoop(box, gripper, 2, 0.05, 0.03, 0, 2, 50, 3);
+  for(int i=0; i<18; i++){
+     std::cout<<"FLIGHT_NR"<<i<<std::endl;
+    //quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.02, 2, 50, 3); //potato
+    //quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.035, 2, 50, 0); //box
+    quad.quick_swoop(box, gripper, 2, 0.05, 0.05, 0, 2, 50, 0); //paper_roll
 
     gripper.set_angle_sym(60);
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     gripper.set_angle_sym(5);
-
+    
+    
+    //FOTOS
+    // std::this_thread::sleep_for(std::chrono::milliseconds(6000));
+    // gripper.set_angle_sym(60);
+    // std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    // gripper.set_angle_sym(5);
+    
     quad.go_to_pos(-2, 0.5, 2, 0, 4000, false);
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
   }

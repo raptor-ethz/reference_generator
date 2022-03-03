@@ -15,13 +15,13 @@ int main() {
     gripper.set_back_arm(79);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    // std::cout << "front arm to 0" << std::endl;
-    // gripper.set_front_arm(0);
-    // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::cout << "front arm to 5" << std::endl;
+    gripper.set_front_arm(5);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    // std::cout << "back arm to 0" << std::endl;
-    // gripper.set_back_arm(0);
-    // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    std::cout << "back arm to 5" << std::endl;
+    gripper.set_back_arm(5);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }
   return 0;
 }

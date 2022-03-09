@@ -39,7 +39,7 @@ int main() {
 
   discretize_parabola(parabola, gridPoints, a, b, c);
 
-  quad.set_thresh(0.25, 0.25, 0.25);
+  quad.setDefaultThreshold(0.25, 0.25, 0.25);
 
   // go to inital position
   quad.go_to_pos(-2.0, 1, 2, 0, 5000, false);

@@ -28,10 +28,8 @@ int main() {
   /* END CHECK MOCAP DATA */
 
   /* SETUP & TAKEOFF */
-
   // temporary
   quad.set_state(initialized);
-
   quad.takeOff();
   /* SETUP & TAKEOFF */
 

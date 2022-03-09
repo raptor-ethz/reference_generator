@@ -11,42 +11,24 @@ int main() {
     // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
   Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
+  Item stand("Stand", dp, "mocap_srl_stand");
+  // check for data
+  quad.check_for_data();
+  stand.check_for_data();
 
-  cpp_msg::Header px4_cmd;
+  /* SETUP & TAKEOFF */
+  // temporary
+  quad.set_state(initialized);
 
-  std::cout << "[INFO] Arming Quad..." << std::endl;
-  px4_cmd.id = "arm";
-  quad.px4_cmd_pub->publish(px4_cmd);
-
-  std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
-  std::cout << "[INFO] Taking off..." << std::endl;
-  px4_cmd.id = "takeoff";
-  quad.px4_cmd_pub->publish(px4_cmd);
-  std::this_thread::sleep_for(std::chrono::milliseconds(8000));
+  quad.takeOff();
+  /* SETUP & TAKEOFF */
 
   /* MISSION */
-  std::cout << "[INFO] Fly Mission" << std::endl;
-  px4_cmd.id = "offboard";
-  quad.px4_cmd_pub->publish(px4_cmd);
-  std::this_thread::sleep_for(std::chrono::milliseconds(3000));
   quad.go_to_pos(1, 1, 2, 0, 4000, false);
   quad.go_to_pos(0, 0, 2, 0, 4000, false);
   /* END MISSION */
 
-  cpp_msg::QuadPositionCmd pos_cmd;
-  pos_cmd.header.id = "break";
-  quad.position_pub->publish(pos_cmd);
-  
-  std::cout << "[INFO] Landing..." << std::endl;
-  px4_cmd.id = "land";
-  quad.px4_cmd_pub->publish(px4_cmd);
-
-  std::this_thread::sleep_for(std::chrono::milliseconds(6000));
-
-  std::cout << "[INFO] Disarming..." << std::endl;
-  px4_cmd.id = "disarm";
-  quad.px4_cmd_pub->publish(px4_cmd);
+  quad.land(stand);
 
   return 0;
 }

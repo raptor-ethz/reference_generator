@@ -19,17 +19,17 @@ int main() {
   /* END CREATE PARTICIPANTS */
 
   /* CHECK MOCAP DATA */
-  quad.check_for_data();
-  stand.check_for_data();
-  box.check_for_data();
-  //drop.check_for_data();
+  quad.checkForData();
+  stand.checkForData();
+  box.checkForData();
+  //drop.checkForData();
 
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   /* END CHECK MOCAP DATA */
 
   /* SETUP & TAKEOFF */
   // temporary
-  quad.set_state(initialized);
+  quad.setState(initialized);
   quad.takeOff();
   /* SETUP & TAKEOFF */
 
@@ -37,7 +37,7 @@ int main() {
   //quad.swoop(box,gripper,2,0,0,0,2,0,45);
   //for(int i=0; i<1; i++){
     
-    quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.02, 2, 50, 3); //potato
+    quad.quickSwoop(box, gripper, 2, 0.05, 0.03, -0.02, 2, 50, 3); //potato
     //quad.quick_swoop(box, gripper, 2, 0.05, 0.03, -0.035, 2, 50, 0); //box
     // quad.quick_swoop(box, gripper, 2, 0.05, 0.05, 0, 2, 50, 0); //paper_roll
 

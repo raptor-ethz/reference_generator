@@ -13,19 +13,19 @@ int main() {
   Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
   Item stand("Stand", dp, "mocap_srl_stand");
   // check for data
-  quad.check_for_data();
-  stand.check_for_data();
+  quad.checkForData();
+  stand.checkForData();
 
   /* SETUP & TAKEOFF */
   // temporary
-  quad.set_state(initialized);
+  quad.setState(initialized);
 
   quad.takeOff();
   /* SETUP & TAKEOFF */
 
   /* MISSION */
-  quad.go_to_pos(1, 1, 2, 0, 4000, false);
-  quad.go_to_pos(0, 0, 2, 0, 4000, false);
+  quad.goToPos(1, 1, 2, 0, 4000, false);
+  quad.goToPos(0, 0, 2, 0, 4000, false);
   /* END MISSION */
 
   quad.land(stand);

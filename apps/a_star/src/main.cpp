@@ -49,17 +49,17 @@ int main() {
   Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
   Item stand("Stand", dp, "mocap_srl_stand");
   // check for data
-  quad.check_for_data();
-  stand.check_for_data();
+  quad.checkForData();
+  stand.checkForData();
 
   /* SETUP & TAKEOFF */
   // temporary
-  quad.set_state(initialized);
+  quad.setState(initialized);
   quad.takeOff();
   /* SETUP & TAKEOFF */
 
   //fly to starting position
-  quad.go_to_pos(x_0,y_0,z_0,0,4000,false);
+  quad.goToPos(x_0,y_0,z_0,0,4000,false);
 
   //obstacles
   std::vector<std::vector<int>> coords = {{2,0}, {3,0}, {2,1}, {3,1}, {2,2}, {3,2}};
@@ -82,7 +82,7 @@ int main() {
     std::vector<int> point = vertexToPoint(vertices_astar[i]);
     // std::cout<<"x: "<<x_0 + point[0]*stepSize<<std::endl;
     // std::cout<<"y: "<<y_0 + point[1]*stepSize<<std::endl;
-    quad.go_to_pos(x_0 +point[0]*stepSize, y_0+point[1]*stepSize,z_0,0,3000,true);
+    quad.goToPos(x_0 +point[0]*stepSize, y_0+point[1]*stepSize,z_0,0,3000,true);
   }
 
   std::this_thread::sleep_for(std::chrono::milliseconds(3000));

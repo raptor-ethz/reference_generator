@@ -28,27 +28,11 @@ int main() {
   /* END CHECK MOCAP DATA */
 
   /* SETUP & TAKEOFF */
-  cpp_msg::Header px4_cmd;
 
-  // arm
-  std::cout << "[INFO] Arming Quad" << std::endl;
-  px4_cmd.id = "arm";
-  quad.px4_cmd_pub->publish(px4_cmd);
-  std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+  // temporary
+  quad.set_state(initialized);
 
-  // takeoff
-  std::cout << "[INFO] Taking off" << std::endl;
-  px4_cmd.id = "takeoff";
-  quad.px4_cmd_pub->publish(px4_cmd);
-  std::this_thread::sleep_for(std::chrono::milliseconds(7000));
-
-  // offboard
-  std::cout << "[INFO] Start Offboard" << std::endl;
-  px4_cmd.id = "offboard";
-  quad.px4_cmd_pub->publish(px4_cmd);
-  std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
-  std::cout << "[INFO] Fly Mission" << std::endl;
+  quad.takeOff();
   /* SETUP & TAKEOFF */
 
   // first swoop
@@ -85,16 +69,6 @@ int main() {
   // quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
   quad.land(stand);
-
-  std::cout << "[INFO] Terminate Offboard" << std::endl;
-
-  cpp_msg::QuadPositionCmd pos_cmd;
-  pos_cmd.header.id = "break";
-  quad.position_pub->publish(pos_cmd);
-
-  std::cout << "[INFO] Disarming" << std::endl;
-  px4_cmd.id = "disarm";
-  quad.px4_cmd_pub->publish(px4_cmd);
 
   return 0;
 }

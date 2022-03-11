@@ -55,7 +55,7 @@ for i in range(1, len(sys.argv)):
     #z_plt.scatter(time, p_ref[:, 2], marker="o", s=1, c=ref_color)
    # if(i == 1):
     #line[i] = z_plt.scatter(time/1000, p[:, 0], marker="o", s=1, c=colors[i])
-    line[i] = z_plt.scatter(x, y, marker="o", s=1, c="grey")
+    line[i] = z_plt.scatter(x, y, marker="o", s=1, c=colors[i])
     #line[i].set_label("iteration "+str(i))
     # if(i == 2):
     # high_line = z_plt.scatter(

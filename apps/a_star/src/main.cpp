@@ -39,6 +39,22 @@ void initializeGrid(const std::vector<std::vector<int>>& points, std::vector<std
     }
 }
 
+void initializeGrid(const std::vector<std::vector<std::vector<int>>> &points, std::vector<std::vector<std::vector<int>>> &grid)
+{
+  // initialize grid
+  for (int i = 0; i < gridSize; ++i) {
+    std::vector<std::vector<int>> row;
+    for (int j = 0; j < gridSize; ++j) {
+      std::vector<int> height;
+      for(int k = 0; k < gridSize; ++k) {
+        height.push_back(0);
+      }
+      row.push_back(height);
+    }
+    grid.push_back(row);
+  }
+}
+
 
 int main() {
   // FastDDS default participant

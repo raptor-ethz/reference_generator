@@ -24,6 +24,33 @@ Graph::Graph(const std::vector<std::vector<int>> &grid) {
   // printAdjMatrix();
 }
 
+Graph::Graph(const std::vector<std::vector<std::vector<int>>> &grid) {
+  assert(grid.size() > 0);
+  this->numx = grid.size();
+  this->numy = grid[0].size();
+  this->numz = grid[0][0].size();
+  this->numVertices = this->numx * this->numy * this->numz;
+
+  std::vector<std::vector<std::vector<int>>> vec;
+  for (int i = 0; i < this->numx; i++) {
+    std::vector<std::vector<int>> tmp2D;
+    for (int j = 0; j < this->numy; j++) {
+      std::vector<int> tmp1D;
+      for (int k = 0; k < this->numz; k++) {
+        tmp1D.push_back(0);
+      }
+      tmp2D.push_back(tmp1D);
+    }
+    vec.push_back(tmp2D);
+  }
+  this->adjMatrix3D = vec;
+
+  for (int i = 0, n = grid.size(); i < n; ++i)
+    for (int j = 0, m = grid[i].size(); j < m; ++j)
+      for (int k = 0, o = grid[i][j].size(); k < o; ++k)
+        setEdges(grid, i, j, k);
+}
+
 void Graph::printAdjMatrix() {
   for (int i = 0, n = this->numVertices; i < n; ++i) {
     for (int j = 0; j < n; ++j)
@@ -34,12 +61,58 @@ void Graph::printAdjMatrix() {
 
 int Graph::convertTo1D(int i, int j) { return i * this->numCols + j; }
 
+int Graph::convertTo1D(int i, int j, int k) {
+  return i * this->numy * this->numz + j * this->numz + k;
+}
+
 std::vector<int> Graph::convertTo2D(int vertex) {
   std::vector<int> result;
   int x = vertex / this->numCols, y = vertex % this->numCols;
   result.push_back(x);
   result.push_back(y);
   return result;
+}
+
+std::vector<int> Graph::convertTo3D(int vertex) {
+  int x = vertex / (this->numy * this->numz),
+      y = (vertex / (this->numz)) % this->numy, z = vertex % this->numz;
+  return {x, y, z};
+}
+
+void Graph::setEdges(const std::vector<std::vector<std::vector<int>>> &grid,
+                     int i, int j, int k) {
+  if (grid[i][j][k] == 1)
+    return;
+  if (i > 0 && grid[i - 1][j][k] != 1) {
+    int u = convertTo1D(i, j, k), v = convertTo1D(i - 1, j, k);
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
+  }
+  if (i < numx - 1 && grid[i + 1][j][k] != 1) {
+    int u = convertTo1D(i, j, k), v = convertTo1D(i + 1, j, k);
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
+  }
+  if (j > 0 && grid[i][j - 1][k] != 1) {
+    int u = convertTo1D(i, j, k), v = convertTo1D(i, j - 1, k);
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
+  }
+  if (j < numy - 1 && grid[i][j + 1][k] != 1) {
+    int u = convertTo1D(i, j, k), v = convertTo1D(i, j + 1, k);
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
+  }
+  if (k > 0 && grid[i][j][k - 1] != 1) {
+    int u = convertTo1D(i, j, k), v = convertTo1D(i, j, k - 1);
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
+  }
+  if (k < numz - 1 && grid[i][j][k + 1] != 1) {
+    int u = convertTo1D(i, j, k), v = convertTo1D(i, j, k + 1);
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
+  }
 }
 
 void Graph::setEdges(const std::vector<std::vector<int>> &grid, int i, int j) {
@@ -167,7 +240,7 @@ std::vector<int> Graph::astar(int u, int v) {
   std::vector<int> result;
 
   bool worked = calculateAstarPath(u, v, &parents);
-  std::cout << "A* result: " << worked << std::endl;
+  std::cout << worked << std::endl;
 
   if (parents[v] != -1)
     for (int i = v; i != u; i = parents[i])

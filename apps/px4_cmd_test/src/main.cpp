@@ -2,6 +2,7 @@
 #include "Quad.h"
 #include "QuadPositionCmdPubSubTypes.h"
 #include "logger.h"
+#include <thread>
 
 int main() {
   // FastDDS default participant
@@ -15,16 +16,26 @@ int main() {
   quad.checkForData();
   stand.checkForData();
 
-  std::atomic<LogFlag> log_flag{run};
-
-  startLog(log_flag);
-
   // temporary
   quad.setState(initialized);
 
   quad.takeOff();
-  quad.goToPos(1, 1, 2, 0, 4000, false);
-  quad.goToPos(0, 0, 2, 0, 4000, false);
+  quad.goToPos(0, -1, 2, 0, 5000, false);
+
+  // start logger
+  std::atomic<LogFlag> log_flag{run};
+  std::thread th_log(startLog, std::ref(log_flag), "mocap_srl_quad");
+  th_log.detach();
+
+  
+  quad.goToPos(0, 1, 2, 0, 5000, false);
+  quad.goToPos(2, 1, 2, 0, 5000, false);
+  quad.goToPos(2, -1, 2, 0, 5000, false);
+  quad.goToPos(0, -1, 2, 0, 5000, false);
+
+  //stop logger
+  log_flag.store(stop);
+  
   quad.land(stand);
 
   return 0;

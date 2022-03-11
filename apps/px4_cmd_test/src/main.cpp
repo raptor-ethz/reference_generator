@@ -28,10 +28,10 @@ int main() {
   th_log.detach();
 
   
-  quad.goToPos(0, 1, 2, 0, 5000, false);
-  quad.goToPos(2, 1, 2, 0, 5000, false);
-  quad.goToPos(2, -1, 2, 0, 5000, false);
-  quad.goToPos(0, -1, 2, 0, 5000, false);
+  quad.goToPos(0, 1, 2, 0, 5000, true);
+  quad.goToPos(2, 1, 2, 0, 5000, true);
+  quad.goToPos(2, -1, 2, 0, 5000, true);
+  quad.goToPos(0, -1, 2, 0, 5000, true);
 
   //stop logger
   log_flag.store(stop);

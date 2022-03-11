@@ -30,14 +30,6 @@ header_list = [
     "t", "x", "y", "z"
 ]
 
-# reference
-f_ref = pd.read_csv("Reference.csv")
-t_ref = pd.read_csv("Reference.csv", usecols=["t"],
-                    names=header_list).to_numpy()
-p_ref = pd.read_csv("Reference.csv", usecols=["x", "y", "z"],
-                    names=header_list).to_numpy()
-l_ref = z_plt.scatter(t_ref/1000, p_ref[:, 0], marker="o", s=1, c="black")
-l_ref.set_label("Reference")
 
 line = [0]*len(sys.argv)
 for i in range(1, len(sys.argv)):
@@ -51,19 +43,19 @@ for i in range(1, len(sys.argv)):
     z = pd.read_csv(sys.argv[i], usecols=["z"],
                     names=header_list).to_numpy()
 
-    Eps = (np.max(x)-1)/2
-    for a in range(len(x)):
-        if(x[a] > 0.9):
-            t_90 = time[a] / 1000.0
-            break
+    # Eps = (np.max(x)-1)/2
+    # for a in range(len(x)):
+    #     if(x[a] > 0.9):
+    #         t_90 = time[a] / 1000.0
+    #         break
 
-    print("iteration: "+str(i)+" t_90: "+str(t_90)+" Eps: "+str(Eps))
+    # print("iteration: "+str(i)+" t_90: "+str(t_90)+" Eps: "+str(Eps))
 
     # t-z plot
     #z_plt.scatter(time, p_ref[:, 2], marker="o", s=1, c=ref_color)
    # if(i == 1):
     #line[i] = z_plt.scatter(time/1000, p[:, 0], marker="o", s=1, c=colors[i])
-    line[i] = z_plt.scatter(time/1000, x, marker="o", s=0.1, c="grey")
+    line[i] = z_plt.scatter(x, y, marker="o", s=1, c="grey")
     #line[i].set_label("iteration "+str(i))
     # if(i == 2):
     # high_line = z_plt.scatter(

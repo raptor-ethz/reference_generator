@@ -85,33 +85,33 @@ void Graph::setEdges(const std::vector<std::vector<std::vector<int>>> &grid,
     return;
   if (i > 0 && grid[i - 1][j][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i - 1, j, k);
-    this->adjMatrix[u][v] = 1;
-    this->adjMatrix[v][u] = 1;
+    this->adjMatrix3D[u][v] = 1;
+    this->adjMatrix3D[v][u] = 1;
   }
   if (i < numx - 1 && grid[i + 1][j][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i + 1, j, k);
-    this->adjMatrix[u][v] = 1;
-    this->adjMatrix[v][u] = 1;
+    this->adjMatrix3D[u][v] = 1;
+    this->adjMatrix3D[v][u] = 1;
   }
   if (j > 0 && grid[i][j - 1][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j - 1, k);
-    this->adjMatrix[u][v] = 1;
-    this->adjMatrix[v][u] = 1;
+    this->adjMatrix3D[u][v] = 1;
+    this->adjMatrix3D[v][u] = 1;
   }
   if (j < numy - 1 && grid[i][j + 1][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j + 1, k);
-    this->adjMatrix[u][v] = 1;
-    this->adjMatrix[v][u] = 1;
+    this->adjMatrix3D[u][v] = 1;
+    this->adjMatrix3D[v][u] = 1;
   }
   if (k > 0 && grid[i][j][k - 1] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j, k - 1);
-    this->adjMatrix[u][v] = 1;
-    this->adjMatrix[v][u] = 1;
+    this->adjMatrix3D[u][v] = 1;
+    this->adjMatrix3D[v][u] = 1;
   }
   if (k < numz - 1 && grid[i][j][k + 1] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j, k + 1);
-    this->adjMatrix[u][v] = 1;
-    this->adjMatrix[v][u] = 1;
+    this->adjMatrix3D[u][v] = 1;
+    this->adjMatrix3D[v][u] = 1;
   }
 }
 

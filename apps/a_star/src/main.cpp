@@ -125,15 +125,12 @@ int main() {
     grid.push_back(tmp2D);
   }
 
-  std::cout<<"sdasd 1"<<std::endl;
   initializeGrid(coords, grid);
   // graph
-  std::cout<<"sdasd 2"<<std::endl;
   Graph graph(grid);
 
   // std::chrono::steady_clock::time_point start_astar =
   // std::chrono::steady_clock::now();
-  std::cout<<"sdasd 3"<<std::endl;
   std::vector<int> vertices_astar =
       graph.astar(pointToVertex3D(start), pointToVertex3D(end));
   // std::chrono::steady_clock::time_point end_astar =
@@ -141,7 +138,6 @@ int main() {
   // std::chrono::duration_cast<std::chrono::milliseconds>(end_astar -
   // start_astar).count() << " milliseconds.\n";
   // assert(vertices_astar == vertices_dijkstra);
-  std::cout<<"sdasd 4"<<std::endl;
   for (int i = 0, n = vertices_astar.size(); i < n; ++i) {
     std::vector<int> point = vertexToPoint3D(vertices_astar[i]);
     std::cout<<"x: "<<x_0 + point[0]*stepSize<<std::endl;

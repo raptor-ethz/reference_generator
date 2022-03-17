@@ -31,19 +31,21 @@ Graph::Graph(const std::vector<std::vector<std::vector<int>>> &grid) {
   this->numz = grid[0][0].size();
   this->numVertices = this->numx * this->numy * this->numz;
 
-  std::vector<std::vector<std::vector<int>>> vec;
-  for (int i = 0; i < this->numx; i++) {
-    std::vector<std::vector<int>> tmp2D;
-    for (int j = 0; j < this->numy; j++) {
-      std::vector<int> tmp1D;
-      for (int k = 0; k < this->numz; k++) {
-        tmp1D.push_back(0);
-      }
-      tmp2D.push_back(tmp1D);
-    }
-    vec.push_back(tmp2D);
-  }
-  this->adjMatrix3D = vec;
+//   std::vector<std::vector<std::vector<int>>> vec;
+//   for (int i = 0; i < this->numx; i++) {
+//     std::vector<std::vector<int>> tmp2D;
+//     for (int j = 0; j < this->numy; j++) {
+//       std::vector<int> tmp1D;
+//       for (int k = 0; k < this->numz; k++) {
+//         tmp1D.push_back(0);
+//       }
+//       tmp2D.push_back(tmp1D);
+//     }
+//     vec.push_back(tmp2D);
+//   }
+//   this->adjMatrix3D = vec;
+  std::vector<std::vector<int>> vec(this->numVertices,
+                                    std::vector<int>(this->numVertices, 0));
 
   for (int i = 0, n = grid.size(); i < n; ++i)
     for (int j = 0, m = grid[i].size(); j < m; ++j)
@@ -85,33 +87,33 @@ void Graph::setEdges(const std::vector<std::vector<std::vector<int>>> &grid,
     return;
   if (i > 0 && grid[i - 1][j][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i - 1, j, k);
-    this->adjMatrix3D[u][v] = 1;
-    this->adjMatrix3D[v][u] = 1;
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
   }
   if (i < numx - 1 && grid[i + 1][j][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i + 1, j, k);
-    this->adjMatrix3D[u][v] = 1;
-    this->adjMatrix3D[v][u] = 1;
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
   }
   if (j > 0 && grid[i][j - 1][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j - 1, k);
-    this->adjMatrix3D[u][v] = 1;
-    this->adjMatrix3D[v][u] = 1;
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
   }
   if (j < numy - 1 && grid[i][j + 1][k] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j + 1, k);
-    this->adjMatrix3D[u][v] = 1;
-    this->adjMatrix3D[v][u] = 1;
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
   }
   if (k > 0 && grid[i][j][k - 1] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j, k - 1);
-    this->adjMatrix3D[u][v] = 1;
-    this->adjMatrix3D[v][u] = 1;
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
   }
   if (k < numz - 1 && grid[i][j][k + 1] != 1) {
     int u = convertTo1D(i, j, k), v = convertTo1D(i, j, k + 1);
-    this->adjMatrix3D[u][v] = 1;
-    this->adjMatrix3D[v][u] = 1;
+    this->adjMatrix[u][v] = 1;
+    this->adjMatrix[v][u] = 1;
   }
 }
 

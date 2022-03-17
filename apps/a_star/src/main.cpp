@@ -3,13 +3,34 @@
 #include "graph.h"
 #include <iostream>
 
+// Starting position in grid
 const float x_0 = -1;
 const float y_0 = -0.5;
 const float z_0 = 1.5;
-const float stepSize = 0.5; // size of a grid unit
+
+// Ending position in grid
+const float x_1 = 5;
+const float y_1 = 2.5;
+const float z_1 = 3;
+
+// const float stepSize = 0.5; // size of a grid unit
+// TODO: determine stepSize from gridSize and starting and ending positions
 
 int gridSize = 3;
 using namespace std::chrono;
+
+
+// TODO: floor might not be imported yet, test
+std::vector<int> convertPositionToGrid(float x, float y, float z) {
+    float step_x = (x_1 - x_0)/gridSize, step_y = (y_1 - y_0)/gridSize, difference_z = (z_1 - z_0)/gridSize;
+    return {floor((x+0.01-x_0)/step_x), floor((y+0.01-y_0)/step_y), floor((z+0.01-z_0)/step_z)};
+}
+
+std::vector<float> convertGridToPosition(std::vector<int> point) {
+    float step_x = (x_1 - x_0)/gridSize, step_y = (y_1 - y_0)/gridSize, difference_z = (z_1 - z_0)/gridSize;
+    return {x_0 + point[0] * step_x, y_0 + point[1] * step_y, z_0 + point[2] * step_z};
+}
+
 
 int pointToVertex(const std::vector<int> &point) {
   return point[0] * gridSize + point[1];

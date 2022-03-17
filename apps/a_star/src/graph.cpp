@@ -46,6 +46,7 @@ Graph::Graph(const std::vector<std::vector<std::vector<int>>> &grid) {
 //   this->adjMatrix3D = vec;
   std::vector<std::vector<int>> vec(this->numVertices,
                                     std::vector<int>(this->numVertices, 0));
+  this->adjMatrix = vec;
 
   for (int i = 0, n = grid.size(); i < n; ++i)
     for (int j = 0, m = grid[i].size(); j < m; ++j)

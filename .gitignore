@@ -2,6 +2,10 @@
 /.vscode
 /.clang-format
 
+#log files
+*.csv
+*.svg
+
 # Prerequisites
 *.d
 

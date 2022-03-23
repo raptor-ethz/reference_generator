@@ -3,13 +3,34 @@
 #include "graph.h"
 #include <iostream>
 
+// Starting position in grid
 const float x_0 = -1;
 const float y_0 = -0.5;
 const float z_0 = 1.5;
+
+// Ending position in grid
+const float x_1 = 5;
+const float y_1 = 2.5;
+const float z_1 = 3;
+
 const float stepSize = 0.5; // size of a grid unit
+// TODO: determine stepSize from gridSize and starting and ending positions
 
 int gridSize = 3;
 using namespace std::chrono;
+
+
+// TODO: floor might not be imported yet, test
+std::vector<int> convertPositionToGrid(float x, float y, float z) {
+    float step_x = (x_1 - x_0)/gridSize, step_y = (y_1 - y_0)/gridSize, step_z = (z_1 - z_0)/gridSize;
+    return {(int)floor((x+0.01-x_0)/step_x), (int)floor((y+0.01-y_0)/step_y), (int)floor((z+0.01-z_0)/step_z)};
+}
+
+std::vector<float> convertGridToPosition(std::vector<int> point) {
+    float step_x = (x_1 - x_0)/gridSize, step_y = (y_1 - y_0)/gridSize, step_z = (z_1 - z_0)/gridSize;
+    return {x_0 + point[0] * step_x, y_0 + point[1] * step_y, z_0 + point[2] * step_z};
+}
+
 
 int pointToVertex(const std::vector<int> &point) {
   return point[0] * gridSize + point[1];
@@ -104,15 +125,12 @@ int main() {
     grid.push_back(tmp2D);
   }
 
-  std::cout<<"sdasd 1"<<std::endl;
   initializeGrid(coords, grid);
   // graph
-  std::cout<<"sdasd 2"<<std::endl;
   Graph graph(grid);
 
   // std::chrono::steady_clock::time_point start_astar =
   // std::chrono::steady_clock::now();
-  std::cout<<"sdasd 3"<<std::endl;
   std::vector<int> vertices_astar =
       graph.astar(pointToVertex3D(start), pointToVertex3D(end));
   // std::chrono::steady_clock::time_point end_astar =
@@ -120,7 +138,6 @@ int main() {
   // std::chrono::duration_cast<std::chrono::milliseconds>(end_astar -
   // start_astar).count() << " milliseconds.\n";
   // assert(vertices_astar == vertices_dijkstra);
-  std::cout<<"sdasd 4"<<std::endl;
   for (int i = 0, n = vertices_astar.size(); i < n; ++i) {
     std::vector<int> point = vertexToPoint3D(vertices_astar[i]);
     std::cout<<"x: "<<x_0 + point[0]*stepSize<<std::endl;

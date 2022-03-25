@@ -108,7 +108,7 @@ int main() {
 
   // start / ending
   std::vector<int> start = {0, 0, 0};
-  std::vector<int> end = {0, 3, 1};
+  std::vector<int> end = {0, 2, 1};
   // grid
   std::vector<std::vector<std::vector<int>>> grid;
 
@@ -146,7 +146,7 @@ int main() {
                 3000, false);
   }
 
-  // quad.land(stand);
+  quad.land(stand);
 
   return 0;
 }

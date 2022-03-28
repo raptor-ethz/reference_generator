@@ -7,7 +7,7 @@ int main() {
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   // create instance of quad
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", nullptr, nullptr);
 
   // creat instance of stand
   Item stand("Stand", dp, "mocap_srl_stand");

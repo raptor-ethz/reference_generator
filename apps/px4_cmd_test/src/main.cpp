@@ -11,7 +11,7 @@ int main() {
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", nullptr, nullptr);
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
   // Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");

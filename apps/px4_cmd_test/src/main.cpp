@@ -26,7 +26,7 @@ int main() {
   // place_crate.checkForData();
 
   if (!quad.takeOff()) {
-    std::cerr << "Terminate Process." << std::endl;
+    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")" << std::endl;
     return 1;
   }
 

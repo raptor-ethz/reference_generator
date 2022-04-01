@@ -50,7 +50,7 @@ int main() {
   quad.place(place_crate, gripper, 0, 0.1, 0.15, 1.5); // place fanta
 
   /* VALSER BOTTLE*/
-  quad.quickSwoop(pick_crate, gripper, 1, 0.10, 0.07, -0.18, 1.5, 100,
+  quad.quickSwoop(pick_crate, gripper, 1, 0.10, 0.085, -0.18, 1.5, 100,
                   0);                                   // grab valser
   quad.place(place_crate, gripper, 0, -0.1, 0.15, 1.5); // place valser
 

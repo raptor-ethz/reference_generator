@@ -4,19 +4,19 @@
 #include <iostream>
 
 // Starting position in grid
-const float x_0 = -1;
-const float y_0 = -0.5;
-const float z_0 = 1.5;
+const float x_0 = 0;
+const float y_0 = -1;
+const float z_0 = 1;
 
 // Ending position in grid
-const float x_1 = 5;
-const float y_1 = 2.5;
-const float z_1 = 3;
+const float x_1 = 2;
+const float y_1 = 1;
+const float z_1 = 2;
 
 const float stepSize = 0.5; // size of a grid unit
 // TODO: determine stepSize from gridSize and starting and ending positions
 
-int gridSize = 3;
+int gridSize = 4;
 using namespace std::chrono;
 
 
@@ -91,20 +91,19 @@ void initializeGrid(const std::vector<std::vector<int>> &points,
 
 int main() {
   // FastDDS default participant
-  // std::unique_ptr<DefaultParticipant> dp =
-  //     std::make_unique<DefaultParticipant>(0, "raptor");
+  std::unique_ptr<DefaultParticipant> dp =
+      std::make_unique<DefaultParticipant>(0, "raptor");
 
   // create instance of quad
-  // Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
-  // Item stand("Stand", dp, "mocap_srl_stand");
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
+  Item stand("Stand", dp, "mocap_srl_stand");
   // check for data
-  // quad.checkForData();
-  // stand.checkForData();
+  quad.checkForData();
+  stand.checkForData();
 
   // obstacles
   // std::vector<std::vector<int>> coords = {{2, 0}, {3, 0}, {2, 1},
   //                                         {3, 1}, {2, 2}, {3, 2}};
-
   std::vector<std::vector<int>> coords = { {0,1,0}, {0,1,1}, {1,1,0}, {1,1,1} };
 
   // start / ending
@@ -140,14 +139,14 @@ int main() {
   // assert(vertices_astar == vertices_dijkstra);
   for (int i = 0, n = vertices_astar.size(); i < n; ++i) {
     std::vector<int> point = vertexToPoint3D(vertices_astar[i]);
-    std::cout<<"x: "<<x_0 + point[0]*stepSize<<std::endl;
-    std::cout<<"y: "<<y_0 + point[1]*stepSize<<std::endl;
-    std::cout<<"z: "<<z_0 + point[2]*stepSize<<std::endl;
-    // quad.goToPos(x_0 + point[0] * stepSize, y_0 + point[1] * stepSize, z_0, 0,
-     //            3000, true);
+    // std::cout<<"x: "<<x_0 + point[0]*stepSize<<std::endl;
+    // std::cout<<"y: "<<y_0 + point[1]*stepSize<<std::endl;
+    // std::cout<<"z: "<<z_0 + point[2]*stepSize<<std::endl;
+    quad.goToPos(x_0 + point[0] * stepSize, y_0 + point[1] * stepSize, z_0 * point[2] * stepSize, 0,
+                3000, false);
   }
 
-  std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+  quad.land(stand);
 
   return 0;
 }

@@ -1,59 +1,43 @@
-#include "HeaderPubSubTypes.h"
+#include "Gripper.h"
+#include "Item.h"
 #include "Quad.h"
-#include "QuadPositionCmdPubSubTypes.h"
-#include "logger.h"
-#include "std_msgs/msgs/Header.h"
-#include <thread>
 
+using namespace std::this_thread;
+using namespace std::chrono;
 int main() {
-  // FastDDS default participant
+
+  /* FASTDDS DEFAULT PARTICIPANT  */
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
 
-  cpp_msg::Header px4_info;
+  /* CREATE PARTICIPANTS */
 
-  DDSSubscriber px4_info_sub_(idl_msg::HeaderPubSubType(), &px4_info,
-                              "px4_status_msgs", dp->participant());
+  Item stand("Stand", dp, "mocap_srl_stand");
+  // Item box("box", dp, "mocap_srl_box");
+  // Gripper gripper("Gripper", dp, "grip_cmd");
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", nullptr, nullptr);
+  /* END CREATE PARTICIPAN TS */
 
-  DDSPublisher px4_action_pub_(idl_msg::HeaderPubSubType(), "px4_commands",
-                               dp->participant());
-
-  cpp_msg::Header px4_action_cmd_{};
-  px4_action_cmd_.id = "info";
-  px4_action_pub_.publish(px4_action_cmd_);
-
-  for (int i = 0; i < 100; ++i) {
-    px4_action_cmd_.id = "info";
-    px4_action_pub_.publish(px4_action_cmd_);
-    std::cout << "ID: " << px4_info.id << std::endl;
-    std::cout << "STMP: " << (int)px4_info.timestamp << std::endl;
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-  }
-
-  // Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
-  // Item stand("Stand", dp, "mocap_srl_stand");
-
-  // // check for data
+  // std::cout << "x:" << box.getPose().pose.position.x
+  //           << "\t y:" << box.getPose().pose.position.y
+  //           << "\t z:" << box.getPose().pose.position.z << std::endl;
   // quad.checkForData();
   // stand.checkForData();
+  // pick_crate.checkForData();
+  // place_crate.checkForData();
 
-  // temporary
-  // quad.setState(initialized);
+  if (!quad.takeOff()) {
+    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
+              << std::endl;
+    return 1;
+  }
 
-  // quad.takeOff();
-
-  // start logger
-  // std::atomic<LogFlag> log_flag{run};
-  // std::thread th_log(startLog, std::ref(log_flag), "mocap_srl_quad");
-  // th_log.detach();
-
-  // wait for logger to initialize
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-  // stop logger
-  // log_flag.store(stop);
-
-  // quad.land(stand);
+  // go to starting position
+  quad.goToPos(1.5, 2, 1.5, 0, 4000, false);
+  quad.goToPos(0, 0, 1.5, 0, 4000, false);
+  /* LAND */
+  // quad.emergencyLand();
+  quad.land(stand);
 
   return 0;
 }

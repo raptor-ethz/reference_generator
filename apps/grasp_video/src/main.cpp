@@ -11,10 +11,10 @@ int main() {
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("box", dp, "mocap_srl_box");
   Gripper gripper("Gripper", dp, "grip_cmd");
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd",&gripper,&stand);
   /* END CREATE PARTICIPAN TS */
 
   // std::cout << "x:" << box.getPose().pose.position.x
@@ -30,11 +30,9 @@ int main() {
   //   std::cerr << "Fatal Error (main:23) Terminate Process." << std::endl;
   //   return 1;
   // }
-  quad.setState(initialized);
 
   if (!quad.takeOff()) {
-    // TODO: try again after 10s
-    std::cerr << "Fatal Error (main:29) Terminate Process." << std::endl;
+    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")" << std::endl;
     return 1;
   }
 
@@ -96,34 +94,35 @@ int main() {
   gripper.setAngleAsym(60, grip_angle);
 
   // go to start position
-  quad.goToPos(box.getPose().pose.position.x + dx,
-               box.getPose().pose.position.y + dy + length, h0, 90, 4500,
+  quad.goToPos(box.getPose().position.x + dx,
+               box.getPose().position.y + dy + length, h0, 90, 4500,
                false);
   // std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
   // swoop to object
-  quad.goToPos(box.getPose().pose.position.x + dx,
-               box.getPose().pose.position.y + dy,
-               box.getPose().pose.position.z + dz + 0.21, 90, 4500, true);
+  quad.goToPos(box.getPose().position.x + dx,
+               box.getPose().position.y + dy,
+               box.getPose().position.z + dz + 0.21, 90, 4500, true);
 
   // close gripper
   gripper.setAngleAsym(grip_angle, grip_angle);
   // std::this_thread::sleep_for(std::chrono::milliseconds(0));
 
   // swoop away from object
-  quad.goToPos(box.getPose().pose.position.x + dx,
-               box.getPose().pose.position.y + dy - length, h0, 90, 3000,
+  quad.goToPos(box.getPose().position.x + dx,
+               box.getPose().position.y + dy - length, h0, 90, 3000,
                false);
   std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
-  // go back to stand
+  // go to drop position
   quad.goToPos(1.5, 0, 1.5, 90, 4000, false);
 
-  // // release object
-  gripper.set_angle_sym(60);
+  // release object
+  gripper.setAngleSym(60);
   std::this_thread::sleep_for(std::chrono::milliseconds(200));
-  gripper.set_angle_sym(grip_angle);
-  /* LAND */
+  gripper.setAngleSym(grip_angle);
+
+  // LAND
   quad.land(stand);
 
   return 0;

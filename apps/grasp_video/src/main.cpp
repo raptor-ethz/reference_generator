@@ -26,10 +26,10 @@ int main() {
   // place_crate.checkForData();
 
   // check mocap data
-  if (!quad.checkForData() || !stand.checkForData()) {
-    std::cerr << "Fatal Error (main:23) Terminate Process." << std::endl;
-    return 1;
-  }
+  // if (!quad.checkForData() || !stand.checkForData()) {
+  //   std::cerr << "Fatal Error (main:23) Terminate Process." << std::endl;
+  //   return 1;
+  // }
   quad.setState(initialized);
 
   if (!quad.takeOff()) {
@@ -93,9 +93,7 @@ int main() {
   // int grip_angle = 2;
 
   // attack pose
-  gripper.set_front_arm(79);
-  std::this_thread::sleep_for(std::chrono::milliseconds(30));
-  gripper.set_back_arm(grip_angle);
+  gripper.setAngleAsym(60, grip_angle);
 
   // go to start position
   quad.goToPos(box.getPose().pose.position.x + dx,
@@ -109,7 +107,7 @@ int main() {
                box.getPose().pose.position.z + dz + 0.21, 90, 4500, true);
 
   // close gripper
-  gripper.set_front_arm(grip_angle);
+  gripper.setAngleAsym(grip_angle, grip_angle);
   // std::this_thread::sleep_for(std::chrono::milliseconds(0));
 
   // swoop away from object

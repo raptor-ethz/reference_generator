@@ -10,7 +10,7 @@ int main() {
   /* rotational gripper */
   while (true) {
     std::cout << "front arm to 45" << std::endl;
-    gripper.setAngleAsym(40, 5);
+    gripper.setAngleAsym(60, 5);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     std::cout << "back arm to 5" << std::endl;
@@ -18,11 +18,11 @@ int main() {
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     std::cout << "front arm to 5" << std::endl;
-    gripper.setAngleAsym(5, 40);
+    gripper.setAngleAsym(5, 60);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     std::cout << "back arm to 45" << std::endl;
-    gripper.setAngleAsym(40, 40);
+    gripper.setAngleAsym(60, 60);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     // std::cout << "gripping now" << std::endl;

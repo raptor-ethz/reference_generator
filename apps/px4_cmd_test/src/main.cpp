@@ -15,7 +15,7 @@ int main() {
   Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", nullptr, nullptr);
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
   /* END CREATE PARTICIPAN TS */
 
   // std::cout << "x:" << box.getPose().pose.position.x

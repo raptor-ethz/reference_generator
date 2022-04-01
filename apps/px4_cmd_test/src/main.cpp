@@ -11,10 +11,11 @@ int main() {
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd");
-  // Item stand("Stand", dp, "mocap_srl_stand");
+
+  Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
-  // Gripper gripper("Gripper", dp, "grip_cmd");
+  Gripper gripper("Gripper", dp, "grip_cmd");
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
   /* END CREATE PARTICIPAN TS */
 
   // std::cout << "x:" << box.getPose().pose.position.x
@@ -26,7 +27,8 @@ int main() {
   // place_crate.checkForData();
 
   if (!quad.takeOff()) {
-    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")" << std::endl;
+    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
+              << std::endl;
     return 1;
   }
 
@@ -34,7 +36,8 @@ int main() {
   quad.goToPos(1.5, 2, 1.5, 0, 4000, false);
   quad.goToPos(0, 0, 1.5, 0, 4000, false);
   /* LAND */
-  quad.emergencyLand();
+  // quad.emergencyLand();
+  quad.land(stand);
 
   return 0;
 }

@@ -14,7 +14,7 @@ int main() {
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("box", dp, "mocap_srl_box");
   Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd",&gripper,&stand);
+  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
   /* END CREATE PARTICIPAN TS */
 
   // std::cout << "x:" << box.getPose().pose.position.x
@@ -32,7 +32,8 @@ int main() {
   // }
 
   if (!quad.takeOff()) {
-    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")" << std::endl;
+    std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
+              << std::endl;
     return 1;
   }
 
@@ -51,12 +52,12 @@ int main() {
   // int grip_angle = 0;
 
   // // PET BOTTLE swoop 2.5m
-  const float h0 = 2.0;
-  const float length = 2.5;
-  const float dx = -0.08;
-  const float dy = -0.1;
-  const float dz = 0.00;
-  int grip_angle = 2;
+  // const float h0 = 2.0;
+  // const float length = 2.5;
+  // const float dx = -0.08;
+  // const float dy = -0.1;
+  // const float dz = 0.00;
+  // int grip_angle = 2;
 
   // // PAPER ROLL swoop 2.5m
   // const float h0 = 2.0;
@@ -67,12 +68,12 @@ int main() {
   // int grip_angle = 2;
 
   // // POTATO swoop 2.5m
-  //  const float h0 = 2.0;
-  //  const float length = 2.5;
-  //  const float dx = -0.08;
-  //  const float dy = -0.1;
-  //  const float dz = 0.01;
-  // int grip_angle = 2;
+  const float h0 = 2.0;
+  const float length = 2.5;
+  const float dx = -0.08;
+  const float dy = -0.1;
+  const float dz = 0.01;
+  int grip_angle = 2;
 
   // // POTATO swoop 2.0m
   //  const float h0 = 2.0;
@@ -95,13 +96,11 @@ int main() {
 
   // go to start position
   quad.goToPos(box.getPose().position.x + dx,
-               box.getPose().position.y + dy + length, h0, 90, 4500,
-               false);
+               box.getPose().position.y + dy + length, h0, 90, 4500, false);
   // std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
   // swoop to object
-  quad.goToPos(box.getPose().position.x + dx,
-               box.getPose().position.y + dy,
+  quad.goToPos(box.getPose().position.x + dx, box.getPose().position.y + dy,
                box.getPose().position.z + dz + 0.21, 90, 4500, true);
 
   // close gripper
@@ -110,8 +109,7 @@ int main() {
 
   // swoop away from object
   quad.goToPos(box.getPose().position.x + dx,
-               box.getPose().position.y + dy - length, h0, 90, 3000,
-               false);
+               box.getPose().position.y + dy - length, h0, 90, 3000, false);
   std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
   // go to drop position

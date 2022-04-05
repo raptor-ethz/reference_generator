@@ -1,6 +1,7 @@
 #include "Gripper.h"
 
-int main() {
+int main()
+{
   // FastDDS default participant
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
@@ -8,7 +9,8 @@ int main() {
   Gripper gripper("Gripper", dp, "grip_cmd");
 
   /* rotational gripper */
-  while (true) {
+  while (true)
+  {
     std::cout << "front arm to 45" << std::endl;
     gripper.setAngleAsym(60, 5);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
@@ -25,9 +27,12 @@ int main() {
     gripper.setAngleAsym(60, 60);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    // std::cout << "gripping now" << std::endl;
-    // gripper.setAngleAsym(79, 5);
-    // std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    std::cout << "triggering gripper" << std::endl;
+    gripper.triggerGripper();
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+    gripper.updateSensor();
+    std::cout << "sensor reading: \t" << gripper.getSensorBackLeft() << "\t" << gripper.getSensorBackRight() << "\t" << gripper.getSensorFrontLeft() << "\t" << gripper.getSensorFrontRight() << "\t" << std::endl;
   }
 
   /* HASEL gripper */

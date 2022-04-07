@@ -1,31 +1,36 @@
 #include "Gripper.h"
 #include "Item.h"
 #include "Quad.h"
+#include "fshelper.h"
+#include <csignal>
 
-using namespace std::this_thread;
-using namespace std::chrono;
+std::string g_log;
+
+void sigintHandler(int signum) {
+  exit(signum);
+}
+
+void exitHandler(){
+  // check length
+  if (g_log.length() > 2) {
+    std::cout << "Safe log" << std::endl;
+    saveLog(g_log);
+  }
+}
+
 int main() {
-  std::string log;
-
-  /* FASTDDS DEFAULT PARTICIPANT  */
+  // register signal
+  signal(SIGINT, sigintHandler);
+  int x = atexit(exitHandler);
+  // FASTDDS DEFAULT PARTICIPANT 
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-
   Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", &log, dp, "mocap_srl_quad", "pos_cmd");
-  /* END CREATE PARTICIPAN TS */
-
-  // std::cout << "x:" << box.getPose().pose.position.x
-  //           << "\t y:" << box.getPose().pose.position.y
-  //           << "\t z:" << box.getPose().pose.position.z << std::endl;
-  // quad.checkForData();
-  // stand.checkForData();
-  // pick_crate.checkForData();
-  // place_crate.checkForData();
+  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
 
   if (!quad.takeOff()) {
     std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
@@ -33,10 +38,11 @@ int main() {
     return 1;
   }
 
-  // go to starting position
+  // mission
   quad.goToPos(1.5, 2, 1.5, 0, 4000, false);
   quad.goToPos(0, 0, 1.5, 0, 4000, false);
-  /* LAND */
+
+  // LAND
   // quad.emergencyLand();
   quad.land(stand);
 

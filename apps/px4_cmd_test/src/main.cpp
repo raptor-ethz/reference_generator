@@ -6,23 +6,27 @@
 
 std::string g_log;
 
-void sigintHandler(int signum) {
+void sigintHandler(int signum)
+{
   exit(signum);
 }
 
-void exitHandler(){
+void exitHandler()
+{
   // check length
-  if (g_log.length() > 2) {
+  if (g_log.length() > 2)
+  {
     std::cout << "Safe log" << std::endl;
     saveLog(g_log);
   }
 }
 
-int main() {
+int main()
+{
   // register signal
   signal(SIGINT, sigintHandler);
   int x = atexit(exitHandler);
-  // FASTDDS DEFAULT PARTICIPANT 
+  // FASTDDS DEFAULT PARTICIPANT
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
 
@@ -32,14 +36,16 @@ int main() {
   // Gripper gripper("Gripper", dp, "grip_cmd");
   Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
 
-  if (!quad.takeOff()) {
+  if (!quad.takeOff())
+  {
     std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
               << std::endl;
     return 1;
   }
 
   // mission
-  quad.goToPos(1.5, 2, 1.5, 0, 4000, false);
+  quad.goToPos(1, 1, 1, 0, 4000, false);
+  // quad.hover();
   quad.goToPos(0, 0, 1.5, 0, 4000, false);
 
   // LAND

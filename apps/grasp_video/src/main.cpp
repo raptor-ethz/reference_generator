@@ -5,6 +5,7 @@
 using namespace std::this_thread;
 using namespace std::chrono;
 int main() {
+  std::string log;
 
   /* FASTDDS DEFAULT PARTICIPANT  */
   std::unique_ptr<DefaultParticipant> dp =
@@ -14,7 +15,7 @@ int main() {
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("box", dp, "mocap_srl_box");
   Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
+  Quad quad("Quad", &log, dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
   /* END CREATE PARTICIPAN TS */
 
   // std::cout << "x:" << box.getPose().pose.position.x

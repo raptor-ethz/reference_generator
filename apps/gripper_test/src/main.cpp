@@ -27,12 +27,13 @@ int main()
     gripper.setAngleAsym(60, 60);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    std::cout << "triggering gripper" << std::endl;
-    gripper.triggerGripper();
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    // std::cout << "triggering gripper" << std::endl;
+    // gripper.triggerGripper();
+    // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    gripper.updateSensor();
-    std::cout << "sensor reading: \t" << gripper.getSensorBackLeft() << "\t" << gripper.getSensorBackRight() << "\t" << gripper.getSensorFrontLeft() << "\t" << gripper.getSensorFrontRight() << "\t" << std::endl;
+    // gripper.updateSensor();
+    // std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    // std::cout << "sensor reading: \t" << gripper.getSensorBackLeft() << "\t" << gripper.getSensorBackRight() << "\t" << gripper.getSensorFrontLeft() << "\t" << gripper.getSensorFrontRight() << "\t" << std::endl;
   }
 
   /* HASEL gripper */

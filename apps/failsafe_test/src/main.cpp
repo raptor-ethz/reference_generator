@@ -9,7 +9,7 @@ std::string g_log;
 
 void sigintHandler(int signum)
 {
-  std::cout << "Caught signal interrupt: " << signum << std::endl;
+  std::cout << "\nCaught signal interrupt: " << signum << std::endl;
   exit(signum);
 }
 

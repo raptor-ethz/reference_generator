@@ -4,15 +4,18 @@
 #include "fshelper.h"
 #include <csignal>
 
+// global log string
 std::string g_log;
 
 void sigintHandler(int signum)
 {
+  std::cout << "Caught signal interrupt: " << signum << std::endl;
   exit(signum);
 }
 
 void exitHandler()
 {
+  std::cout << "Caught exit." << std::endl;
   // check length
   if (g_log.length() > 2)
   {
@@ -34,7 +37,7 @@ int main()
   Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
+  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd", &stand);
 
   if (!quad.takeOff())
   {
@@ -44,9 +47,10 @@ int main()
   }
 
   // mission
-  quad.goToPos(1, 1, 1, 0, 4000, false);
-  // quad.hover();
-  quad.goToPos(0, 0, 1.5, 0, 4000, false);
+  quad.goToPos(0.5, 0, 1.5, 0, 4000, false);
+  // quad.goToPos(0.5, 1, 1.5, 0, 4000, false);
+  // quad.goToPos(1.5, 1, 1.5, 0, 4000, false);
+  // quad.goToPos(1.5, 0, 1.5, 0, 4000, false);
 
   // LAND
   // quad.emergencyLand();

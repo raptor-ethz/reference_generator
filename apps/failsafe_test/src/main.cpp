@@ -19,7 +19,7 @@ void exitHandler()
   // check length
   if (g_log.length() > 2)
   {
-    std::cout << "Safe log" << std::endl;
+    std::cout << "Saving log." << std::endl;
     saveLog(g_log);
   }
 }

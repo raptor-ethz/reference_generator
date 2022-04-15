@@ -6,6 +6,9 @@
 using namespace std::this_thread;
 using namespace std::chrono;
 
+// global log string
+std::string g_log;
+
 // PATHPLANNING HELPER FUNCTIONS
 
 // Starting position in grid
@@ -122,7 +125,7 @@ int main()
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("box", dp, "mocap_srl_box");
   Item drop("drop", dp, "mocap_srl_drop");
-  Gripper gripper("Gripper", dp, "grip_cmd");
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd");
   Quad quad("Quad", &log, dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
   /* END CREATE PARTICIPAN TS */
 

@@ -47,14 +47,22 @@ int main()
   }
 
   // mission
-  quad.goToPos(0.5, 0, 1.5, 0, 4000, false);
+  // real
+  // quad.goToPos(0.5, 0, 2.5, 0, 4000, false);
   // quad.goToPos(0.5, 1, 1.5, 0, 4000, false);
   // quad.goToPos(1.5, 1, 1.5, 0, 4000, false);
   // quad.goToPos(1.5, 0, 1.5, 0, 4000, false);
 
+  // simulator
+  // quad.goToPos(1, 0, 2.5, 0, 4000, false);
+  // quad.goToPos(1, 1, 2.5, 0, 4000, false);
+  // quad.goToPos(0, 1, 2.5, 0, 4000, false);
+  // quad.goToPos(0, 0, 2.5, 0, 4000, false);
+
   // LAND
   // quad.emergencyLand();
-  quad.land(stand);
+  quad.emergencyLand();
+  // quad.land(stand);
 
   return 0;
 }

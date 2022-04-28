@@ -1,0 +1,18 @@
+[18:40:46|INFO][Quad] Initializing motion capture subscriber
+[18:40:46|INFO][Quad] Good motion capture data received after initialization.
+[18:40:46|INFO][Quad] Initializing interface publisher
+[18:40:46|INFO][Quad] Interface publisher matched.
+[18:40:46|INFO][Quad] Running prefilght checks.
+[18:40:48|WARNING][Quad] Participant is killed (check remote).
+[18:40:48|WARNING][Quad] Rerunning preflight checks in 3 seconds (remaining tires: 4).
+[18:40:51|INFO][Quad] Preflight checks complete (battery: 62%).
+[18:40:51|DEBUG][Quad] Stand height: 0.138678
+[18:40:51|INFO][Quad] Arming.
+[18:40:53|INFO][Quad] Taking off.
+[18:41:05|INFO][Quad] Starting offboard control.
+[18:41:07|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[18:41:07|DEBUG][Quad] Going to position: [0.500000, 0.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[18:41:11|DEBUG][Quad] Position not reached within time limit.
+[18:41:11|DEBUG][Quad] Going to position: [0.500000, 1.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[18:41:13|WARNING][Quad] Flag interruption: Emergency land.
+[18:41:13|DEBUG][Quad] Default land.

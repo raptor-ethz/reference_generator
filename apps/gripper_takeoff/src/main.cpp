@@ -1,6 +1,7 @@
-
 #include "Quad.h"
 #include "fshelper.h"
+#include "Gripper.h"
+#include "Item.h"
 #include <csignal>
 
 std::string g_log;
@@ -30,8 +31,11 @@ int main()
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
-
+  Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd");
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd");
+  Item box("box", dp, "mocap_srl_box");
+  // box.initializeMocapSub();
+  gripper.setAngleSym(80);
   if (!quad.takeOff())
   {
     std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
@@ -40,7 +44,22 @@ int main()
   }
 
   // test mission
-  // quad.goToPos(1, 1, 1, 0, 4000, false);
+
+  quad.goToPos(box.getPose().position.x, box.getPose().position.y,
+               box.getPose().position.z + 2.00, 0, 4500, false);
+
+  quad.goToPos(box.getPose().position.x, box.getPose().position.y,
+               box.getPose().position.z + 1.00, 0, 4500, false);
+  gripper.triggerGripper();
+  quad.goToPos(box.getPose().position.x, box.getPose().position.y,
+               box.getPose().position.z + 2.0, 0, 4500, false);
+
+  quad.goToPos(box.getPose().position.x - 1.0, box.getPose().position.y,
+               box.getPose().position.z + 1.5, 0, 4500, false);
+  gripper.stopTriggerGripper();
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  gripper.setAngleSym(80);
+  quad.emergencyLand();
   // quad.goToPos(0, 0, 1.5, 0, 4000, false);
 
   // // static data collection

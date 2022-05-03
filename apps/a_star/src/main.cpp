@@ -47,7 +47,7 @@ int main()
     std::vector<float> start{0, 0, 1};
     std::vector<float> end{2, 0, 1};
     std::vector<std::vector<float>> obs{{1, 1, 2}};
-    quad.goToPosAstar(start, end, obs);
+    quad.goToPosAstar(start, end, obstacle1);
     
     quad.emergencyLand();
     // quad.land(stand);

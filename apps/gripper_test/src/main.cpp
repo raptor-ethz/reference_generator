@@ -26,19 +26,22 @@ int main()
   // gripper.setAngleAsym(5, 60);
   // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   // gripper.setAngleAsym(45, 45);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  gripper.setAngleAsym(10, 10);
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  // std::this_thread::sleep_for(std::chrono::milliseconds(1000)
+  while (true)
+  {
+    gripper.setAngleAsym(10, 10);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-  gripper.setAngleAsym(60, 60);
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    gripper.setAngleAsym(60, 60);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  }
 
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   // std::cout << "triggering gripper" << std::endl;
-  gripper.triggerGripper();
-  std::this_thread::sleep_for(std::chrono::milliseconds(10000));
-  // std::cout << "stopping triggering gripper" << std::endl;
-  gripper.stopTriggerGripper();
+  // gripper.triggerGripper();
+  // std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+  // // std::cout << "stopping triggering gripper" << std::endl;
+  // gripper.stopTriggerGripper();
 
   // gripper.updateSensor();
   // std::this_thread::sleep_for(std::chrono::milliseconds(50));

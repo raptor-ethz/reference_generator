@@ -1,0 +1,25 @@
+[11:41:54|DEBUG][Gripper] Setting symmetric angle: [80]
+[11:41:54|INFO][Quad] Initializing motion capture subscriber
+[11:41:54|INFO][Quad] Good motion capture data received after initialization.
+[11:41:54|INFO][Quad] Initializing interface publisher
+[11:41:54|INFO][Quad] Interface publisher matched.
+[11:41:54|INFO][Quad] Running prefilght checks.
+[11:41:55|INFO][Quad] Preflight checks complete (battery: 58%).
+[11:41:55|DEBUG][Quad] Stand height: 0.212809
+[11:41:55|INFO][Quad] Arming.
+[11:41:57|INFO][Quad] Taking off.
+[11:42:09|INFO][Quad] Starting offboard control.
+[11:42:11|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[11:42:11|DEBUG][Quad] Going to position: [2.150076, 1.995482, 2.112868, 0.000000] during max 4500.000000ms.
+[11:42:16|DEBUG][Quad] Position not reached within time limit.
+[11:42:16|DEBUG][Quad] Going to position: [2.150117, 1.995579, 1.112880, 0.000000] during max 4500.000000ms.
+[11:42:20|DEBUG][Quad] Position not reached within time limit.
+[11:42:20|DEBUG][Gripper] Triggering gripper.
+[11:42:20|DEBUG][Quad] Going to position: [2.150132, 1.995611, 2.112900, 0.000000] during max 4500.000000ms.
+[11:42:25|DEBUG][Quad] Position not reached within time limit.
+[11:42:25|DEBUG][Quad] Going to position: [1.150105, 1.995620, 1.612882, 0.000000] during max 4500.000000ms.
+[11:42:29|DEBUG][Quad] Position not reached within time limit.
+[11:42:29|DEBUG][Gripper] Stop Triggering gripper.
+[11:42:30|DEBUG][Gripper] Setting symmetric angle: [80]
+[11:42:30|DEBUG][Quad] Default land.
+[11:42:35|DEBUG][Quad] Default land.

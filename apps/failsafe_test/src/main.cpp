@@ -47,11 +47,14 @@ int main()
   }
 
   // mission
+  // takeoff test
+  quad.goToPos(1, 1, 1.5, 0, 4000, false);
+  quad.goToPos(1, 0, 1.5, 0, 4000, false);
   // real
-  quad.goToPos(0.5, 0, 1.5, 0, 4000, false);
-  quad.goToPos(0.5, 1, 1.5, 0, 4000, false);
-  quad.goToPos(1.5, 1, 1.5, 0, 4000, false);
-  quad.goToPos(1.5, 0, 1.5, 0, 4000, false);
+  // quad.goToPos(0.5, 0, 1.5, 0, 4000, false);
+  // quad.goToPos(0.5, 1, 1.5, 0, 4000, false);
+  // quad.goToPos(1.5, 1, 1.5, 0, 4000, false);
+  // quad.goToPos(1.5, 0, 1.5, 0, 4000, false);
 
   // simulator
   // quad.goToPos(1, 0, 2.5, 0, 4000, false);

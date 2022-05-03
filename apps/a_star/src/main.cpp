@@ -43,7 +43,7 @@ int main()
         return 1;
     }
 
-    // mission
+    /* MISSION */
     std::vector<float> start{0, 0, 1};
     std::vector<float> end{2, 0, 1};
     std::vector<std::vector<float>> obs{{1, 1, 2}};

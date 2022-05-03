@@ -34,10 +34,10 @@ int main()
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Item stand("Stand", dp, "mocap_srl_stand");
+  // Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd", &stand);
+  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
 
   if (!quad.takeOff())
   {
@@ -48,10 +48,10 @@ int main()
 
   // mission
   // real
-  // quad.goToPos(0.5, 0, 2.5, 0, 4000, false);
-  // quad.goToPos(0.5, 1, 1.5, 0, 4000, false);
-  // quad.goToPos(1.5, 1, 1.5, 0, 4000, false);
-  // quad.goToPos(1.5, 0, 1.5, 0, 4000, false);
+  quad.goToPos(0.5, 0, 1.5, 0, 4000, false);
+  quad.goToPos(0.5, 1, 1.5, 0, 4000, false);
+  quad.goToPos(1.5, 1, 1.5, 0, 4000, false);
+  quad.goToPos(1.5, 0, 1.5, 0, 4000, false);
 
   // simulator
   // quad.goToPos(1, 0, 2.5, 0, 4000, false);

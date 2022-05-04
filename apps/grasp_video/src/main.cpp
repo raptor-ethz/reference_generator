@@ -8,7 +8,8 @@ using namespace std::chrono;
 // global log string
 std::string g_log;
 
-int main() {
+int main()
+{
   std::string log;
 
   /* FASTDDS DEFAULT PARTICIPANT  */
@@ -18,7 +19,7 @@ int main() {
   /* CREATE PARTICIPANTS */
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("box", dp, "mocap_srl_box");
-  Gripper gripper("Gripper", &g_log, dp, "grip_cmd");
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
   Quad quad("Quad", &log, dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
   /* END CREATE PARTICIPAN TS */
 
@@ -36,7 +37,8 @@ int main() {
   //   return 1;
   // }
 
-  if (!quad.takeOff()) {
+  if (!quad.takeOff())
+  {
     std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
               << std::endl;
     return 1;

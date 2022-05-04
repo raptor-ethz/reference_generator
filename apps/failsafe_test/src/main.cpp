@@ -37,7 +37,7 @@ int main()
   // Item stand("Stand", dp, "mocap_srl_stand");
   // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
-  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
+  Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd");
 
   if (!quad.takeOff())
   {

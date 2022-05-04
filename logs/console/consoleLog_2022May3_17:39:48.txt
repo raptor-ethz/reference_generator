@@ -1,0 +1,12 @@
+[17:39:40|INFO][Quad] Initializing motion capture subscriber
+[17:39:41|INFO][Quad] Good motion capture data received after initialization.
+[17:39:41|INFO][Quad] Initializing interface publisher
+[17:39:41|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[17:39:41|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[17:39:44|INFO][Quad] Interface publisher matched.
+[17:39:44|INFO][Quad] Running prefilght checks.
+[17:39:44|INFO][Quad] Preflight checks complete (battery: 87%).
+[17:39:44|DEBUG][Quad] Stand height: 0.168333
+[17:39:44|INFO][Quad] Arming.
+[17:39:46|INFO][Quad] Taking off.
+[17:39:48|ERROR][Quad] Takeoff failed: Received no feedback from interface.

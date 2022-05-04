@@ -9,7 +9,7 @@ int main()
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
 
-  Gripper gripper("Gripper", &g_log, dp, "grip_cmd");
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
 
   /* rotational gripper */
   while (true)

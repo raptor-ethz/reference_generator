@@ -4,7 +4,8 @@
 
 using namespace std::this_thread;
 using namespace std::chrono;
-int main() {
+int main()
+{
   // FastDDS default participant
   /* FASTDDS DEFAULT PARTICIPANT  */
   std::unique_ptr<DefaultParticipant> dp =
@@ -15,17 +16,19 @@ int main() {
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("Box", dp, "mocap_srl_box");
   // Item drop("drop", dp, "mocap_srl_drop");
-  Gripper gripper("Gripper", dp, "grip_cmd");
+  Gripper gripper("Gripper", dp, "grip_cmd", GripperType::grip_rot);
   /* END CREATE PARTICIPANTS */
 
   // check mocap data
-  if (!quad.checkForData() || !stand.checkForData() || !box.checkForData()) {
+  if (!quad.checkForData() || !stand.checkForData() || !box.checkForData())
+  {
     std::cerr << "Fatal Error (main:23) Terminate Process." << std::endl;
     return 1;
   }
   quad.setState(initialized);
 
-  if (!quad.takeOff()) {
+  if (!quad.takeOff())
+  {
     // TODO: try again after 10s
     std::cerr << "Fatal Error (main:29) Terminate Process." << std::endl;
     return 1;

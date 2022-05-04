@@ -1,0 +1,7 @@
+[17:33:09|INFO][Quad] Initializing motion capture subscriber
+[17:33:09|INFO][Quad] Good motion capture data received after initialization.
+[17:33:09|INFO][Quad] Initializing interface publisher
+[17:33:09|INFO][Quad] Interface publisher matched.
+[17:33:09|INFO][Quad] Running prefilght checks.
+[17:33:09|WARNING][Quad] Participant is killed (check remote).
+[17:33:09|WARNING][Quad] Rerunning preflight checks in 3 seconds (remaining tires: 4).

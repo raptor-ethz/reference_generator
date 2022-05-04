@@ -32,7 +32,7 @@ int main()
 
   /* CREATE PARTICIPANTS */
   Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd");
-  Gripper gripper("Gripper", &g_log, dp, "grip_cmd");
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
   Item box("box", dp, "mocap_srl_box");
   // box.initializeMocapSub();
   gripper.setAngleSym(80);

@@ -8,7 +8,6 @@ using namespace std::chrono;
 // global log string
 std::string g_log;
 
-
 int main()
 {
   std::string log;
@@ -20,7 +19,7 @@ int main()
   /* CREATE PARTICIPANTS */
   Item stand("Stand", dp, "mocap_srl_stand");
   Item box("box", dp, "mocap_srl_box");
-  Gripper gripper("Gripper", &g_log, dp, "grip_cmd");
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_lin);
   Quad quad("Quad", &log, dp, "mocap_srl_quad", "pos_cmd", &gripper, &stand);
   /* END CREATE PARTICIPAN TS */
 

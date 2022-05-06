@@ -43,7 +43,7 @@ int main()
   // // std::cout << "stopping triggering gripper" << std::endl;
   // gripper.stopTriggerGripper();
 
-  // gripper.updateSensor();
+  // gripper.sensorRequest();
   // std::this_thread::sleep_for(std::chrono::milliseconds(50));
   // std::cout << "sensor reading: \t" << gripper.getSensorBackLeft() << "\t" << gripper.getSensorBackRight() << "\t" << gripper.getSensorFrontLeft() << "\t" << gripper.getSensorFrontRight() << "\t" << std::endl;
   //}

@@ -1,0 +1,18 @@
+[11:33:51|INFO][Quad] Initializing motion capture subscriber
+[11:33:51|INFO][Quad] Good motion capture data received after initialization.
+[11:33:51|INFO][Quad] Initializing interface publisher
+[11:33:51|INFO][Quad] Interface publisher matched.
+[11:33:51|INFO][Quad] Running prefilght checks.
+[11:33:51|INFO][Quad] Preflight checks complete (battery: 100%).
+[11:33:51|DEBUG][Quad] Stand height: 0.066039
+[11:33:51|INFO][Quad] Arming.
+[11:33:53|INFO][Quad] Taking off.
+[11:34:05|INFO][Quad] Starting offboard control.
+[11:34:07|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[11:34:07|DEBUG][Quad] Going to position: [0.261946, 1.493784, 1.049241, 0.000000] during max 4000.000000ms.
+[11:34:11|DEBUG][Quad] Position reached after time limit.
+[11:34:11|DEBUG][Quad] Going to position: [1.000000, 1.000000, 1.000000, 0.000000] during max 4000.000000ms.
+[11:34:15|DEBUG][Quad] Position reached after time limit.
+[11:34:15|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[11:34:19|DEBUG][Quad] Position reached after time limit.
+[11:34:19|DEBUG][Quad] Default land.

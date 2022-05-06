@@ -1,0 +1,18 @@
+[11:15:54|INFO][Quad] Initializing motion capture subscriber
+[11:15:54|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[11:15:54|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[11:15:57|INFO][Quad] Good motion capture data received after initialization.
+[11:15:57|INFO][Quad] Initializing interface publisher
+[11:15:57|INFO][Quad] Interface publisher matched.
+[11:15:57|INFO][Quad] Running prefilght checks.
+[11:15:57|INFO][Quad] Preflight checks complete (battery: 96%).
+[11:15:57|DEBUG][Quad] Stand height: 0.075975
+[11:15:57|INFO][Quad] Arming.
+[11:15:59|INFO][Quad] Taking off.
+[11:16:12|INFO][Quad] Starting offboard control.
+[11:16:14|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[11:16:14|DEBUG][Quad] Going to position: [1.000000, 1.000000, 1.000000, 0.000000] during max 4000.000000ms.
+[11:16:18|DEBUG][Quad] Position reached after time limit.
+[11:16:18|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[11:16:22|DEBUG][Quad] Position reached after time limit.
+[11:16:22|DEBUG][Quad] Default land.

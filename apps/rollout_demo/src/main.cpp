@@ -30,7 +30,8 @@ int main()
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
+  Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd");
+  Item box("box", dp, "mocap_srl_box"); // TODO! Abort if no mocap for srl-box available
 
   if (!quad.takeOff())
   {
@@ -40,6 +41,7 @@ int main()
   }
 
   // test mission
+  quad.goToPos(box, 0, 0, 1, 0, 4000, false);
   quad.goToPos(1, 1, 1, 0, 4000, false);
   quad.goToPos(0, 0, 1.5, 0, 4000, false);
 

@@ -1,0 +1,8 @@
+[11:33:00|INFO][Quad] Initializing motion capture subscriber
+[11:33:00|INFO][Quad] Good motion capture data received after initialization.
+[11:33:00|INFO][Quad] Initializing interface publisher
+[11:33:00|INFO][Quad] Interface publisher matched.
+[11:33:00|INFO][Quad] Running prefilght checks.
+[11:33:01|INFO][Quad] Preflight checks complete (battery: 100%).
+[11:33:01|DEBUG][Quad] Stand height: 0.065766
+[11:33:01|INFO][Quad] Arming.

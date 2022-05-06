@@ -1,0 +1,8 @@
+[11:14:37|INFO][Quad] Initializing motion capture subscriber
+[11:14:37|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[11:14:37|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[11:14:40|INFO][Quad] Good motion capture data received after initialization.
+[11:14:40|INFO][Quad] Initializing interface publisher
+[11:14:40|INFO][Quad] Interface publisher matched.
+[11:14:40|INFO][Quad] Running prefilght checks.
+[11:14:40|ERROR][Quad] Takeoff denied: Battery too low (-2147483648%).

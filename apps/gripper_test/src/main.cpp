@@ -12,48 +12,23 @@ int main()
   Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
 
   /* rotational gripper */
-  // while (true)
-  // {
-  // std::cout << "front arm to 45" << std::endl;
-  // gripper.setAngleAsym(60, 5);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-  // std::cout << "back arm to 5" << std::endl;
-  // gripper.setAngleAsym(5, 5);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-  // std::cout << "front arm to 5" << std::endl;
-  // gripper.setAngleAsym(5, 60);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  // gripper.setAngleAsym(45, 45);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1000)
+  const int MAX = 90;
+  const int MIN = 0;
   while (true)
   {
-    gripper.setAngleAsym(10, 10);
+    gripper.setAngleAsym(MAX, MIN);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    gripper.setAngleAsym(60, 60);
+    gripper.setAngleAsym(MIN, MIN);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+    gripper.setAngleAsym(MIN, MAX);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+    gripper.setAngleAsym(MAX, MIN);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }
 
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  // std::cout << "triggering gripper" << std::endl;
-  // gripper.triggerGripper();
-  // std::this_thread::sleep_for(std::chrono::milliseconds(10000));
-  // // std::cout << "stopping triggering gripper" << std::endl;
-  // gripper.stopTriggerGripper();
-
-  // gripper.sensorRequest();
-  // std::this_thread::sleep_for(std::chrono::milliseconds(50));
-  // std::cout << "sensor reading: \t" << gripper.getSensorBackLeft() << "\t" << gripper.getSensorBackRight() << "\t" << gripper.getSensorFrontLeft() << "\t" << gripper.getSensorFrontRight() << "\t" << std::endl;
-  //}
-  // while (true)
-  // {
-  //   gripper.setAngleAsym(45, 45);
-  //   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  gripper.setAngleAsym(60, 60);
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-  //}
   /* HASEL gripper */
   // std::cout << "closing HASEL gripper" << std::endl;
   // gripper.set_front_arm(0);

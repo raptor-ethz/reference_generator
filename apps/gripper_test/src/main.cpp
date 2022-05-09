@@ -12,7 +12,7 @@ int main()
   Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
 
   /* rotational gripper */
-  const int MAX = 90;
+  const int MAX = 110;
   const int MIN = 0;
   while (true)
   {

@@ -16,7 +16,7 @@ int main()
   while (true)
   {
     std::cout << "ITEM: x: \t" << box.getPose().position.x + 0.5 << "\t y: \t" << box.getPose().position.y + 0.5 << "\t z: \t" << box.getPose().position.z << std::endl;
-    // std::cout << "QUAD: x: \t" << quad.getPose().position.x + 0.5 << "\t y: \t" << quad.getPose().position.y + 0.5 << "\t z: \t" << quad.getPose().position.z << std::endl;
+    std::cout << "QUAD: x: \t" << quad.getPose().position.x + 0.5 << "\t y: \t" << quad.getPose().position.y + 0.5 << "\t z: \t" << quad.getPose().position.z << std::endl;
   }
   return 0;
 }

@@ -1,0 +1,10 @@
+[21:11:53|INFO][Quad] Initializing motion capture subscriber
+[21:11:53|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:11:53|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[21:11:56|INFO][Quad] Good motion capture data received after initialization.
+[21:11:56|INFO][Quad] Initializing interface publisher
+[21:11:56|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[21:11:56|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[21:11:59|INFO][Quad] Interface publisher matched.
+[21:11:59|INFO][Quad] Running prefilght checks.
+[21:11:59|ERROR][Quad] Takeoff denied: No local position available (check mocap_px4_publisher).

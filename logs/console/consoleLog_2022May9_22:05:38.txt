@@ -1,0 +1,10 @@
+[22:05:33|INFO][Quad] Initializing motion capture subscriber
+[22:05:33|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[22:05:33|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[22:05:36|INFO][Quad] Good motion capture data received after initialization.
+[22:05:36|INFO][Quad] Initializing interface publisher
+[22:05:36|INFO][Quad] Interface publisher matched.
+[22:05:36|INFO][Quad] Running prefilght checks.
+[22:05:36|INFO][Quad] Preflight checks complete (battery: 61%).
+[22:05:36|DEBUG][Quad] Stand height: 0.219107
+[22:05:36|INFO][Quad] Arming.

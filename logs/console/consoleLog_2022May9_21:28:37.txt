@@ -1,0 +1,30 @@
+[21:27:46|INFO][Quad] Initializing motion capture subscriber
+[21:27:46|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:27:46|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[21:27:49|INFO][Quad] Good motion capture data received after initialization.
+[21:27:49|INFO][Quad] Initializing interface publisher
+[21:27:49|INFO][Quad] Interface publisher matched.
+[21:27:49|INFO][Quad] Running prefilght checks.
+[21:27:49|INFO][Quad] Preflight checks complete (battery: 78%).
+[21:27:49|DEBUG][Quad] Stand height: 0.221149
+[21:27:49|INFO][Quad] Arming.
+[21:27:52|INFO][Quad] Taking off.
+[21:28:04|INFO][Quad] Starting offboard control.
+[21:28:06|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[21:28:11|DEBUG][Quad] Going to position: [1.000000, 1.000000, 1.000000, 0.000000] during max 4000.000000ms.
+[21:28:15|DEBUG][Quad] Position not reached within time limit.
+[21:28:15|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.000000, 0.000000] during max 3000.000000ms.
+[21:28:18|DEBUG][Quad] Position reached after time limit.
+[21:28:18|DEBUG][Quad] Going to position: [0.000000, 0.000000, 0.300000, 0.000000] during max 3000.000000ms.
+[21:28:21|DEBUG][Quad] Position reached after time limit.
+[21:28:21|DEBUG][Gripper] Setting symmetric angle: [10]
+[21:28:21|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[21:28:24|DEBUG][Quad] Position reached after time limit.
+[21:28:24|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[21:28:28|DEBUG][Quad] Position reached after time limit.
+[21:28:28|DEBUG][Gripper] Setting symmetric angle: [60]
+[21:28:28|DEBUG][Quad] Going to position: [0.000000, 1.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[21:28:32|DEBUG][Quad] Position reached after time limit.
+[21:28:32|DEBUG][Quad] Opening gripper.
+[21:28:32|DEBUG][Gripper] Setting symmetric angle: [110]
+[21:28:32|DEBUG][Quad] Default land.

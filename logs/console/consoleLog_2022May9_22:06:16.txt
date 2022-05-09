@@ -1,0 +1,24 @@
+[22:05:41|INFO][Quad] Initializing motion capture subscriber
+[22:05:41|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[22:05:41|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[22:05:44|INFO][Quad] Good motion capture data received after initialization.
+[22:05:44|INFO][Quad] Initializing interface publisher
+[22:05:44|INFO][Quad] Interface publisher matched.
+[22:05:44|INFO][Quad] Running prefilght checks.
+[22:05:44|INFO][Quad] Preflight checks complete (battery: 59%).
+[22:05:44|DEBUG][Quad] Stand height: 0.219797
+[22:05:44|INFO][Quad] Arming.
+[22:05:46|INFO][Quad] Taking off.
+[22:05:58|INFO][Quad] Starting offboard control.
+[22:06:00|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[22:06:00|DEBUG][Gripper] Setting asymmetric angle: [110, 10]
+[22:06:00|DEBUG][Quad] Going to position: [-1.454741, 0.687599, 2.500000, 0.000000] during max 4500.000000ms.
+[22:06:05|DEBUG][Quad] Position not reached within time limit.
+[22:06:05|DEBUG][Quad] Going to position: [0.545569, 0.687630, 0.495165, 0.000000] during max 4500.000000ms.
+[22:06:07|DEBUG][Quad] Position reached before time limit.
+[22:06:07|DEBUG][Gripper] Setting symmetric angle: [10]
+[22:06:07|DEBUG][Quad] Going to position: [2.545306, 0.687536, 2.500000, 0.000000] during max 3000.000000ms.
+[22:06:10|DEBUG][Quad] Position reached after time limit.
+[22:06:11|DEBUG][Quad] Opening gripper.
+[22:06:11|DEBUG][Gripper] Setting symmetric angle: [110]
+[22:06:11|DEBUG][Quad] Default land.

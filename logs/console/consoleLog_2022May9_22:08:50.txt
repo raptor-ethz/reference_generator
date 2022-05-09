@@ -1,0 +1,26 @@
+[22:08:12|INFO][Quad] Initializing motion capture subscriber
+[22:08:12|INFO][Quad] Good motion capture data received after initialization.
+[22:08:12|INFO][Quad] Initializing interface publisher
+[22:08:12|INFO][Quad] Interface publisher matched.
+[22:08:12|INFO][Quad] Running prefilght checks.
+[22:08:12|WARNING][Quad] Participant is killed (check remote).
+[22:08:12|WARNING][Quad] Rerunning preflight checks in 3 seconds (remaining tires: 4).
+[22:08:15|WARNING][Quad] Participant is killed (check remote).
+[22:08:15|WARNING][Quad] Rerunning preflight checks in 3 seconds (remaining tires: 3).
+[22:08:18|INFO][Quad] Preflight checks complete (battery: 58%).
+[22:08:18|DEBUG][Quad] Stand height: 0.224642
+[22:08:18|INFO][Quad] Arming.
+[22:08:20|INFO][Quad] Taking off.
+[22:08:33|INFO][Quad] Starting offboard control.
+[22:08:35|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[22:08:35|DEBUG][Gripper] Setting asymmetric angle: [110, 10]
+[22:08:35|DEBUG][Quad] Going to position: [-1.454044, 0.686945, 2.000000, 0.000000] during max 4500.000000ms.
+[22:08:39|DEBUG][Quad] Position reached after time limit.
+[22:08:39|DEBUG][Quad] Going to position: [0.545844, 0.686631, 0.394848, 0.000000] during max 4500.000000ms.
+[22:08:42|DEBUG][Quad] Position reached before time limit.
+[22:08:42|DEBUG][Gripper] Setting symmetric angle: [10]
+[22:08:42|DEBUG][Quad] Going to position: [2.545595, 0.687174, 2.000000, 0.000000] during max 3000.000000ms.
+[22:08:45|DEBUG][Quad] Position reached after time limit.
+[22:08:45|DEBUG][Quad] Opening gripper.
+[22:08:45|DEBUG][Gripper] Setting symmetric angle: [110]
+[22:08:45|DEBUG][Quad] Default land.

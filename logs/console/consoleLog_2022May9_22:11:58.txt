@@ -1,0 +1,7 @@
+[22:11:53|INFO][Quad] Initializing motion capture subscriber
+[22:11:53|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[22:11:53|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[22:11:56|INFO][Quad] Good motion capture data received after initialization.
+[22:11:56|INFO][Quad] Initializing interface publisher
+[22:11:56|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[22:11:56|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).

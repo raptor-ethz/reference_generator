@@ -1,0 +1,27 @@
+[21:40:25|INFO][Quad] Initializing motion capture subscriber
+[21:40:25|INFO][Quad] Good motion capture data received after initialization.
+[21:40:25|INFO][Quad] Initializing interface publisher
+[21:40:25|INFO][Quad] Interface publisher matched.
+[21:40:25|INFO][Quad] Running prefilght checks.
+[21:40:25|INFO][Quad] Preflight checks complete (battery: 68%).
+[21:40:25|DEBUG][Quad] Stand height: 0.230858
+[21:40:25|INFO][Quad] Arming.
+[21:40:27|INFO][Quad] Taking off.
+[21:40:39|ERROR][Quad] Takeoff failed: Insufficient height reached.
+[21:40:39|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:40:42|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:40:45|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:40:48|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:40:51|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:40:54|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:40:57|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:00|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:03|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:06|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:09|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:12|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:15|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:18|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:21|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:24|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds
+[21:41:27|WARNING][Quad] Insufficient height for offboard (0.230707). Retry in 3 seconds

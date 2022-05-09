@@ -1,0 +1,11 @@
+[21:08:51|INFO][Quad] Initializing motion capture subscriber
+[21:08:51|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:08:51|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[21:08:54|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:08:54|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 3).
+[21:08:57|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:08:57|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 2).
+[21:09:00|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:09:00|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 1).
+[21:09:03|ERROR][Quad] Initialization failed: Failed to match motion capture subscriber.
+[21:09:03|ERROR][Quad] Takeoff denied: Initialization of motion capture subscriber failed.

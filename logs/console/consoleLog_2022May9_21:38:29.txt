@@ -1,0 +1,18 @@
+[21:38:08|INFO][Quad] Initializing motion capture subscriber
+[21:38:08|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[21:38:08|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[21:38:17|WARNING][Quad] Bad motion capture data detected.
+[21:38:17|WARNING][Quad] Received bad motion capture data (check that vicon stream is live).
+[21:38:17|WARNING][Quad] Rerunning data quality checks in 3 seconds (remaining tries: 4).
+[21:38:20|WARNING][Quad] Bad motion capture data detected.
+[21:38:20|WARNING][Quad] Received bad motion capture data (check that vicon stream is live).
+[21:38:20|WARNING][Quad] Rerunning data quality checks in 3 seconds (remaining tries: 3).
+[21:38:23|WARNING][Quad] Bad motion capture data detected.
+[21:38:23|WARNING][Quad] Received bad motion capture data (check that vicon stream is live).
+[21:38:23|WARNING][Quad] Rerunning data quality checks in 3 seconds (remaining tries: 2).
+[21:38:26|WARNING][Quad] Bad motion capture data detected.
+[21:38:26|WARNING][Quad] Received bad motion capture data (check that vicon stream is live).
+[21:38:26|WARNING][Quad] Rerunning data quality checks in 3 seconds (remaining tries: 1).
+[21:38:29|WARNING][Quad] Bad motion capture data detected.
+[21:38:29|ERROR][Quad] Initialization failed: Bad motion capture data.
+[21:38:29|ERROR][Quad] Takeoff denied: Initialization of motion capture subscriber failed.

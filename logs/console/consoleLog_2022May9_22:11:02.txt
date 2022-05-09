@@ -1,0 +1,3 @@
+[22:11:01|INFO][Quad] Initializing motion capture subscriber
+[22:11:01|WARNING][Quad] Motion capture subscriber did not match (check that mocap_publisher is running).
+[22:11:01|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).

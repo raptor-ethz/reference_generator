@@ -1,0 +1,35 @@
+[21:39:05|INFO][Quad] Initializing motion capture subscriber
+[21:39:05|INFO][Quad] Good motion capture data received after initialization.
+[21:39:05|INFO][Quad] Initializing interface publisher
+[21:39:05|INFO][Quad] Interface publisher matched.
+[21:39:05|INFO][Quad] Running prefilght checks.
+[21:39:05|INFO][Quad] Preflight checks complete (battery: 71%).
+[21:39:05|DEBUG][Quad] Stand height: 0.215812
+[21:39:05|INFO][Quad] Arming.
+[21:39:07|INFO][Quad] Taking off.
+[21:39:19|INFO][Quad] Starting offboard control.
+[21:39:21|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[21:39:26|DEBUG][Quad] Going to position: [1.000000, 1.000000, 1.000000, 0.000000] during max 4000.000000ms.
+[21:39:30|DEBUG][Quad] Position reached after time limit.
+[21:39:30|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.000000, 0.000000] during max 3000.000000ms.
+[21:39:33|DEBUG][Quad] Position reached after time limit.
+[21:39:33|DEBUG][Quad] Going to position: [0.000000, 0.000000, 0.300000, 0.000000] during max 3000.000000ms.
+[21:39:36|DEBUG][Quad] Position reached after time limit.
+[21:39:36|DEBUG][Gripper] Setting symmetric angle: [10]
+[21:39:36|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[21:39:39|DEBUG][Quad] Position reached after time limit.
+[21:39:39|DEBUG][Quad] Going to position: [0.000000, 0.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[21:39:42|WARNING][Quad] Bad motion capture data detected.
+[21:39:42|WARNING][Quad] Bad motion capture data detected.
+[21:39:43|WARNING][Quad] Bad motion capture data detected.
+[21:39:43|DEBUG][Quad] Position reached after time limit.
+[21:39:43|DEBUG][Gripper] Setting symmetric angle: [60]
+[21:39:43|DEBUG][Quad] Going to position: [0.000000, 1.000000, 1.500000, 0.000000] during max 4000.000000ms.
+[21:39:46|WARNING][Quad] Bad motion capture data detected.
+[21:39:46|WARNING][Quad] Bad motion capture data detected.
+[21:39:47|WARNING][Quad] Bad motion capture data detected.
+[21:39:47|WARNING][Quad] Bad motion capture data detected.
+[21:39:47|DEBUG][Quad] Position reached after time limit.
+[21:39:47|DEBUG][Quad] Opening gripper.
+[21:39:47|DEBUG][Gripper] Setting symmetric angle: [110]
+[21:39:48|DEBUG][Quad] Default land.

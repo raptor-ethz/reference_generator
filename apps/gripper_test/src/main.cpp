@@ -25,7 +25,7 @@ int main()
     gripper.setAngleAsym(MIN, MAX);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-    gripper.setAngleAsym(MAX, MIN);
+    gripper.setAngleAsym(MAX, MAX);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }
 

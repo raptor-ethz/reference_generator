@@ -35,9 +35,11 @@ int main()
 
   /* CREATE PARTICIPANTS */
   // Item stand("Stand", dp, "mocap_srl_stand");
-  // Item box("box", dp, "mocap_srl_box");
+  Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
   Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd");
+
+  box.initializeMocapSub();
 
   if (!quad.takeOff())
   {
@@ -63,7 +65,6 @@ int main()
   // quad.goToPos(0, 0, 2.5, 0, 4000, false);
 
   // LAND
-  // quad.emergencyLand();
   quad.emergencyLand();
   // quad.land(stand);
 

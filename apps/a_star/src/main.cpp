@@ -44,21 +44,34 @@ int main()
     // }
 
     std::cout << "Start ASTAR\n";
-
-    /* MISSION */
-    std::vector<int> start{18, 8, 4};
-    std::vector<int> end{4, 16, 4};
     std::vector<std::vector<int>> obs;
     // block everything between 8,12,0 to 14,20,6
     // (x,y,z) = (0, 1, 0.5) -> (1.5, 3, 2)
-    for (int x = 8; x < 16; ++x) {
-      for (int y = 12; y < 20; ++y) {
-        for (int z = 0; z < 8; ++z) {
-          obs.push_back({x,y,z});
+    for (int x = 8; x < 16; ++x)
+    {
+        for (int y = 12; y < 20; ++y)
+        {
+            for (int z = 0; z < 8; ++z)
+            {
+                obs.push_back({x, y, z});
+            }
         }
-      }
     }
-    
+
+    for (int x = 16; x < 20; ++x)
+    {
+        for (int y = 12; y < 20; ++y)
+        {
+            for (int z = 0; z < 6; ++z)
+            {
+                obs.push_back({x, y, z});
+            }
+        }
+    }
+    /* MISSION */
+    std::vector<int> start{18, 8, 4};
+    std::vector<int> end{4, 16, 4};
+
     quad.goToPosAstarStatic(start, end, obs);
     std::cout << "***********************************\n";
     start = end;
@@ -66,7 +79,7 @@ int main()
     end.at(1) = 16;
     end.at(2) = 6;
     quad.goToPosAstarStatic(start, end, obs);
-    
+
     // quad.emergencyLand();
     // quad.land(stand);
 

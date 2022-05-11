@@ -1,0 +1,9 @@
+[20:09:39|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:09:40|ERROR][pick] Bad Initial Position.
+[20:09:41|ERROR][place] Bad Initial Position.
+[20:09:41|INFO][box] Good Initial Position saved.
+[20:09:42|ERROR][drop] Bad Initial Position.
+[20:09:42|INFO][Quad] Initializing motion capture subscriber
+[20:09:47|WARNING][Quad] Bad motion capture data detected.
+[20:09:47|WARNING][Quad] Received bad motion capture data (check that vicon stream is live).
+[20:09:47|WARNING][Quad] Rerunning data quality checks in 3 seconds (remaining tries: 4).

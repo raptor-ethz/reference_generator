@@ -1,0 +1,11 @@
+[20:10:31|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:10:31|INFO][pick] Good Initial Position saved.
+[20:10:32|ERROR][place] Bad Initial Position.
+[20:10:32|INFO][box] Good Initial Position saved.
+[20:10:32|INFO][drop] Good Initial Position saved.
+[20:10:32|INFO][Quad] Initializing motion capture subscriber
+[20:10:32|INFO][Quad] Good motion capture data received after initialization.
+[20:10:32|INFO][Quad] Initializing interface publisher
+[20:10:32|INFO][Quad] Interface publisher matched.
+[20:10:32|INFO][Quad] Running prefilght checks.
+[20:10:32|ERROR][Quad] Takeoff denied: No local position available (check mocap_px4_publisher).

@@ -1,0 +1,86 @@
+[20:11:02|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:11:02|INFO][pick] Good Initial Position saved.
+[20:11:03|ERROR][place] Bad Initial Position.
+[20:11:03|INFO][box] Good Initial Position saved.
+[20:11:03|INFO][drop] Good Initial Position saved.
+[20:11:03|INFO][Quad] Initializing motion capture subscriber
+[20:11:04|INFO][Quad] Good motion capture data received after initialization.
+[20:11:04|INFO][Quad] Initializing interface publisher
+[20:11:04|INFO][Quad] Interface publisher matched.
+[20:11:04|INFO][Quad] Running prefilght checks.
+[20:11:04|INFO][Quad] Preflight checks complete (battery: 97%).
+[20:11:04|INFO][Quad] Arming.
+[20:11:06|INFO][Quad] Taking off.
+[20:11:18|INFO][Quad] Starting offboard control.
+[20:11:20|INFO][Quad] Takeoff sequence complete. Ready to fly mission.
+[20:11:20|DEBUG][Quad] Going to position: [2.828420, -0.490158, 2.000000, 0.000000] during max 4000.000000ms.
+[20:11:24|DEBUG][Quad] Position reached after time limit.
+[20:11:26|DEBUG][Quad] Going to position: [2.250000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:28|DEBUG][Quad] Position reached before time limit.
+[20:11:28|DEBUG][Quad] Going to position: [2.000000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:29|DEBUG][Quad] Position reached before time limit.
+[20:11:29|DEBUG][Quad] Going to position: [1.750000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:31|DEBUG][Quad] Position reached before time limit.
+[20:11:31|DEBUG][Quad] Going to position: [1.500000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:32|DEBUG][Quad] Position reached before time limit.
+[20:11:32|DEBUG][Quad] Going to position: [1.250000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:33|DEBUG][Quad] Position reached before time limit.
+[20:11:33|DEBUG][Quad] Going to position: [1.000000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:35|DEBUG][Quad] Position reached before time limit.
+[20:11:35|DEBUG][Quad] Going to position: [0.750000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:36|DEBUG][Quad] Position reached before time limit.
+[20:11:36|DEBUG][Quad] Going to position: [0.500000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:37|DEBUG][Quad] Position reached before time limit.
+[20:11:37|DEBUG][Quad] Going to position: [0.250000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:39|DEBUG][Quad] Position reached before time limit.
+[20:11:39|DEBUG][Quad] Going to position: [0.000000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:40|DEBUG][Quad] Position reached before time limit.
+[20:11:40|DEBUG][Quad] Going to position: [-0.250000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:41|DEBUG][Quad] Position reached before time limit.
+[20:11:41|DEBUG][Quad] Going to position: [-0.500000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:42|DEBUG][Quad] Position reached before time limit.
+[20:11:42|DEBUG][Quad] Going to position: [-0.750000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:44|DEBUG][Quad] Position reached before time limit.
+[20:11:44|DEBUG][Quad] Going to position: [-1.000000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:45|DEBUG][Quad] Position reached before time limit.
+[20:11:45|DEBUG][Quad] Going to position: [-1.250000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:46|DEBUG][Quad] Position reached before time limit.
+[20:11:46|DEBUG][Quad] Going to position: [-1.500000, 0.000000, 2.000000, 0.000000] during max 3000.000000ms.
+[20:11:48|DEBUG][Quad] Position reached before time limit.
+[20:11:48|DEBUG][Quad] Going to position: [-1.500000, 0.000000, 1.750000, 0.000000] during max 3000.000000ms.
+[20:11:48|DEBUG][Quad] Position reached before time limit.
+[20:11:48|DEBUG][Quad] Going to position: [-1.500000, 0.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:49|DEBUG][Quad] Position reached before time limit.
+[20:11:49|DEBUG][Quad] Going to position: [-1.500000, 0.250000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:49|DEBUG][Quad] Position reached before time limit.
+[20:11:49|DEBUG][Quad] Going to position: [-1.500000, 0.500000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:50|DEBUG][Quad] Position reached before time limit.
+[20:11:50|DEBUG][Quad] Going to position: [-1.500000, 0.750000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:51|DEBUG][Quad] Position reached before time limit.
+[20:11:51|DEBUG][Quad] Going to position: [-1.500000, 1.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:52|DEBUG][Quad] Position reached before time limit.
+[20:11:52|DEBUG][Quad] Going to position: [-1.500000, 1.250000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:53|DEBUG][Quad] Position reached before time limit.
+[20:11:53|DEBUG][Quad] Going to position: [-1.500000, 1.500000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:54|DEBUG][Quad] Position reached before time limit.
+[20:11:54|DEBUG][Quad] Going to position: [-1.500000, 1.750000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:55|DEBUG][Quad] Position reached before time limit.
+[20:11:55|DEBUG][Quad] Going to position: [-1.500000, 2.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:56|DEBUG][Quad] Position reached before time limit.
+[20:11:56|DEBUG][Quad] Going to position: [-1.250000, 2.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:56|DEBUG][Quad] Position reached before time limit.
+[20:11:56|DEBUG][Quad] Going to position: [-1.000000, 2.000000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:11:57|DEBUG][Quad] Position reached before time limit.
+[20:11:57|DEBUG][Quad] Going to position: [-2.158531, 1.197096, 0.985917, 0.000000] during max 4000.000000ms.
+[20:12:01|DEBUG][Quad] Position reached after time limit.
+[20:12:01|DEBUG][Gripper] Setting symmetric angle: [80]
+[20:12:01|DEBUG][Quad] Going to position: [-0.500000, -0.500000, 1.500000, 0.000000] during max 3000.000000ms.
+[20:12:04|DEBUG][Quad] Position reached after time limit.
+[20:12:04|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:12:04|DEBUG][Quad] Going to position: [-0.500000, -0.500000, 0.100000, 0.000000] during max 2000.000000ms.
+[20:12:06|DEBUG][Quad] Position not reached within time limit.
+[20:12:06|DEBUG][Quad] Going to position: [-0.500000, -0.500000, -0.100000, 0.000000] during max 2000.000000ms.
+[20:12:08|DEBUG][Quad] Position not reached within time limit.
+[20:12:08|DEBUG][Quad] Opening gripper.
+[20:12:08|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:12:08|DEBUG][Quad] Default land.

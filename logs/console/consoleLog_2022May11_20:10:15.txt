@@ -1,0 +1,14 @@
+[20:10:12|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:10:12|INFO][pick] Good Initial Position saved.
+[20:10:13|ERROR][place] Bad Initial Position.
+[20:10:13|INFO][box] Good Initial Position saved.
+[20:10:13|INFO][drop] Good Initial Position saved.
+[20:10:13|INFO][Quad] Initializing motion capture subscriber
+[20:10:13|INFO][Quad] Good motion capture data received after initialization.
+[20:10:13|INFO][Quad] Initializing interface publisher
+[20:10:13|INFO][Quad] Interface publisher matched.
+[20:10:13|INFO][Quad] Running prefilght checks.
+[20:10:13|INFO][Quad] Preflight checks complete (battery: 97%).
+[20:10:13|INFO][Quad] Arming.
+[20:10:15|INFO][Quad] Taking off.
+[20:10:15|ERROR][Quad] Takeoff failed: PX4 error.

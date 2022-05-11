@@ -9,7 +9,7 @@ int main()
   std::unique_ptr<DefaultParticipant> dp =
       std::make_unique<DefaultParticipant>(0, "raptor");
 
-  Quad quad("Quad", &log, dp, "mocap_srl_raptor", "pos_cmd");
+  Quad quad("Quad", &log, dp, "mocap_srl_quad", "pos_cmd");
 
   Item box("box", dp, "mocap_srl_box");
   /* PRINT MOCAP DATA */

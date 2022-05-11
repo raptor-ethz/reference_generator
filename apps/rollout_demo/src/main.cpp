@@ -1,6 +1,7 @@
 
 #include "Quad.h"
 #include "fshelper.h"
+#include <vector>
 #include <csignal>
 
 std::string g_log;
@@ -33,16 +34,27 @@ int main()
   Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
   Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd", &gripper);
 
-  Item box("box", dp, "mocap_srl_box"); // TODO! Abort if no mocap for srl-box available
+  Item box("box", &g_log, dp, "mocap_srl_box");       // TODO! Abort if no mocap for srl-box available
+  Item pick("pick", &g_log, dp, "mocap_srl_pick");    // TODO! Abort if no mocap for srl-box available
+  Item place("place", &g_log, dp, "mocap_srl_place"); // TODO! Abort if no mocap for srl-box available
+  Item drop("drop", &g_log, dp, "mocap_srl_drop");    // TODO! Abort if no mocap for srl-box available
 
+  gripper.setAngleSym(110);
   // box.initializeMocapSub();
-  // ->SEG FAULT
+  // drop.initializeMocapSub();
+  // pick.initializeMocapSub();
+  // place.initializeMocapSub();
 
-  box.checkMocapData();
-  for (int i = 0; i < 10; i++)
-  {
-    std::cout << "ITEM: x: \t" << box.getPose().position.x << "\t y: \t" << box.getPose().position.y << "\t z: \t" << box.getPose().position.z << std::endl;
-  }
+  // declare pos data vectors
+  pick.setInitialPosition();
+  place.setInitialPosition();
+  box.setInitialPosition();
+  drop.setInitialPosition();
+
+  const std::vector<float> pick_vec = pick.getPoseAsVector();
+  const std::vector<float> place_vec = place.getPoseAsVector();
+  const std::vector<float> box_vec = box.getPoseAsVector();
+  const std::vector<float> drop_vec = drop.getPoseAsVector();
 
   if (!quad.takeOff())
   {
@@ -60,10 +72,67 @@ int main()
   //  gripper.setAngleSym(60);
   //  quad.goToPos(0, 1, 1.5, 0, 4000, false);
 
-  quad.quickSwoop(box, gripper, 2, -0.07, -0.02, 0.05, 2.0, 0, 10);
+  // quad.goToPos(box, 0, 0, 0.5, 0, 4000, false);
+  // quad.goToPos(pick, -1.5, 0, 0.5, 0, 4000, false);
+  // quad.goToPos(pick, 0, 0, 0.5, 0, 4000, false);
+  // quad.goToPos(place, 0, 0, 0.5, 0, 4000, false);
+  // quad.goToPos(drop, 0, 0, 0.5, 0, 4000, false);
+  // SWOOP FOR BOX
+  quad.quickSwoop(box_vec, gripper, 2, +0.02, -0.08, 0.02, 2.0, 0, 10);
+  // quad.goToPos(box, 0, 0, 1.5, 0, 4000, false);
+  quad.goToPos(drop_vec, -0.15, -0.2, 0.5, 0, 4000, false);
+  gripper.setAngleSym(80);
+
+  // PICK UP BOTTLE
+  quad.goToPos(pick_vec, -1.0, 0.035, 0.65, 0, 3000, false);
+  quad.goToPos(pick_vec, -0.11, 0.035, 0.65, 0, 4000, false);
+  quad.goToPos(pick_vec, -0.11, 0.035, 0.28, 0, 6000, false);
+  gripper.setAngleSym(0);
+  std::this_thread::sleep_for(std::chrono::milliseconds(150));
+  quad.goToPos(pick_vec, -0.11, 0.035, 0.65, 0, 4000, false);
+  quad.goToPos(pick_vec, -1.0, 0.035, 0.65, 0, 4000, false);
+
+  quad.goToPos(place_vec, -0.15, -0.02, 0.7, 0, 5000, false);
+  quad.goToPos(place_vec, -0.15, -0.02, 0.175, 0, 3000, false);
+  gripper.setAngleSym(60);
+  quad.goToPos(place_vec, -0.15, -0.02, 0.7, 0, 3000, false);
 
   // LAND
+  quad.goToPos(-0.5, -0.5, 1.5, 0, 3000, false);
+  gripper.setAngleSym(110);
+  quad.goToPos(-0.5, -0.5, 0.1, 0, 2000, false);
+  quad.goToPos(-0.5, -0.5, -0.1, 0, 2000, false);
   quad.emergencyLand();
 
   return 0;
 }
+
+/*
+  // SWOOP FOR BOX
+  quad.quickSwoop(box_vec, gripper, 2, +0.02, -0.08, 0.02, 2.0, 0, 10);
+  // quad.goToPos(box, 0, 0, 1.5, 0, 4000, false);
+  quad.goToPos(drop_vec, -0.15, -0.2, 0.5, 0, 4000, false);
+  gripper.setAngleSym(80);
+
+  // PICK UP BOTTLE
+  quad.goToPos(pick_vec, -1.0, 0.035, 0.65, 0, 3000, false);
+  quad.goToPos(pick_vec, -0.11, 0.035, 0.65, 0, 4000, false);
+  quad.goToPos(pick_vec, -0.11, 0.035, 0.28, 0, 6000, false);
+  gripper.setAngleSym(0);
+  std::this_thread::sleep_for(std::chrono::milliseconds(150));
+  quad.goToPos(pick_vec, -0.11, 0.035, 0.65, 0, 4000, false);
+  quad.goToPos(pick_vec, -1.0, 0.035, 0.65, 0, 4000, false);
+
+  quad.goToPos(place_vec, -0.15, -0.02, 0.7, 0, 5000, false);
+  quad.goToPos(place_vec, -0.15, -0.02, 0.175, 0, 3000, false);
+  gripper.setAngleSym(60);
+  quad.goToPos(place_vec, -0.15, -0.02, 0.7, 0, 3000, false);
+
+  // LAND
+  quad.goToPos(-0.5, -0.5, 1.5, 0, 3000, false);
+  gripper.setAngleSym(110);
+  quad.goToPos(-0.5, -0.5, 0.1, 0, 2000, false);
+  quad.goToPos(-0.5, -0.5, -0.1, 0, 2000, false);
+  quad.emergencyLand();
+
+  */

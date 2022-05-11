@@ -35,11 +35,11 @@ int main()
 
   /* CREATE PARTICIPANTS */
   // Item stand("Stand", dp, "mocap_srl_stand");
-  Item box("box", dp, "mocap_srl_box");
+  // Item box("box", dp, "mocap_srl_box");
   // Gripper gripper("Gripper", dp, "grip_cmd");
   Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd");
 
-  box.initializeMocapSub();
+  // box.initializeMocapSub();
 
   if (!quad.takeOff())
   {
@@ -50,8 +50,14 @@ int main()
 
   // mission
   // takeoff test
-  quad.goToPos(1, 1, 1.5, 0, 4000, false);
-  quad.goToPos(0, 0, 1.5, 0, 4000, false);
+  quad.goToPos(-1.5, 0, 1.5, 0, 7000, false);
+  quad.goToPos(2.5, 0, 1.5, 0, 7000, false);
+
+  quad.goToPos(-1.5, 0, 1.5, 0, 7000, false);
+  quad.goToPos(2.5, 0, 1.5, 0, 7000, false);
+
+  quad.goToPos(-0.5, -0.5, 0.1, 0, 2000, false);
+  quad.goToPos(-0.5, -0.5, -0.1, 0, 2000, false);
   // real
   // quad.goToPos(0.5, 0, 1.5, 0, 4000, false);
   // quad.goToPos(0.5, 1, 1.5, 0, 4000, false);

@@ -36,20 +36,38 @@ int main()
     Obstacle obstacle1("obstacle1", dp, "mocap_markers_srl_obstacle");
     Quad quad("Quad", &g_log, dp, "mocap_srl_quad", "pos_cmd");
 
-    if (!quad.takeOff())
-    {
-        std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
-                  << std::endl;
-        return 1;
-    }
+    // if (!quad.takeOff())
+    // {
+    //     std::cerr << "Terminate Process (" << __FILE__ << ":" << __LINE__ << ")"
+    //               << std::endl;
+    //     return 1;
+    // }
+
+    std::cout << "Start ASTAR\n";
 
     /* MISSION */
-    std::vector<float> start{0, 0, 1};
-    std::vector<float> end{2, 0, 1};
-    std::vector<std::vector<float>> obs{{1, 1, 2}};
-    quad.goToPosAstar(start, end, obstacle1);
+    std::vector<int> start{18, 8, 4};
+    std::vector<int> end{4, 16, 4};
+    std::vector<std::vector<int>> obs;
+    // block everything between 8,12,0 to 14,20,6
+    // (x,y,z) = (0, 1, 0.5) -> (1.5, 3, 2)
+    for (int x = 8; x < 16; ++x) {
+      for (int y = 12; y < 20; ++y) {
+        for (int z = 0; z < 8; ++z) {
+          obs.push_back({x,y,z});
+        }
+      }
+    }
     
-    quad.emergencyLand();
+    quad.goToPosAstarStatic(start, end, obs);
+    std::cout << "***********************************\n";
+    start = end;
+    end.at(0) = 18;
+    end.at(1) = 16;
+    end.at(2) = 6;
+    quad.goToPosAstarStatic(start, end, obs);
+    
+    // quad.emergencyLand();
     // quad.land(stand);
 
     return 0;

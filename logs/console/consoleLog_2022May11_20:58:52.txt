@@ -1,0 +1,12 @@
+[20:58:49|DEBUG][Gripper] Setting symmetric angle: [110]
+[20:58:49|INFO][pick] Good Initial Position saved.
+[20:58:49|INFO][place] Good Initial Position saved.
+[20:58:49|INFO][box] Good Initial Position saved.
+[20:58:49|INFO][drop] Good Initial Position saved.
+[20:58:49|INFO][Quad] Initializing motion capture subscriber
+[20:58:49|INFO][Quad] Good motion capture data received after initialization.
+[20:58:49|INFO][Quad] Initializing interface publisher
+[20:58:49|INFO][Quad] Interface publisher matched.
+[20:58:49|INFO][Quad] Running prefilght checks.
+[20:58:50|WARNING][Quad] Participant is killed (check remote).
+[20:58:50|WARNING][Quad] Rerunning preflight checks in 3 seconds (remaining tires: 4).

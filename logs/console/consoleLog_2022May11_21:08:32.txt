@@ -1,0 +1,18 @@
+[21:08:20|DEBUG][Gripper] Setting symmetric angle: [110]
+[21:08:20|INFO][pick] Good Initial Position saved.
+[21:08:20|INFO][place] Good Initial Position saved.
+[21:08:20|INFO][box] Good Initial Position saved.
+[21:08:20|INFO][drop] Good Initial Position saved.
+[21:08:20|INFO][Quad] Initializing motion capture subscriber
+[21:08:20|INFO][Quad] Good motion capture data received after initialization.
+[21:08:20|INFO][Quad] Initializing interface publisher
+[21:08:20|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[21:08:20|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 4).
+[21:08:23|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[21:08:23|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 3).
+[21:08:26|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[21:08:26|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 2).
+[21:08:29|WARNING][Quad] Interface publisher did not match (check that position_control_interface is running).
+[21:08:29|WARNING][Quad] Rerunning initialization in 3 seconds (remaining tries: 1).
+[21:08:32|ERROR][Quad] Initialization fialed: Failed to match interface publisher.
+[21:08:32|ERROR][Quad] Takeoff denied: Initialization of interface publisher failed.

@@ -1,4 +1,3 @@
-
 #include "Quad.h"
 #include "fshelper.h"
 #include <vector>
@@ -31,30 +30,19 @@ int main()
       std::make_unique<DefaultParticipant>(0, "raptor");
 
   /* CREATE PARTICIPANTS */
-  Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rot);
+  Gripper gripper("Gripper", &g_log, dp, "grip_cmd", GripperType::grip_rotlin);
   Quad quad("Quad", &g_log, dp, "mocap_srl_raptor", "pos_cmd", &gripper);
 
-  Item box("box", &g_log, dp, "mocap_srl_box");       // TODO! Abort if no mocap for srl-box available
-  Item pick("pick", &g_log, dp, "mocap_srl_pick");    // TODO! Abort if no mocap for srl-box available
-  Item place("place", &g_log, dp, "mocap_srl_place"); // TODO! Abort if no mocap for srl-box available
-  Item drop("drop", &g_log, dp, "mocap_srl_drop");    // TODO! Abort if no mocap for srl-box available
+  // open gripper
+  gripper.setAngleRotLin(90, 90, 0);
 
-  // Obstacle obstacle("obstacle", dp, "markers_srl_obstacle");
-  gripper.setAngleSym(110);
-  // box.initializeMocapSub();
-  // drop.initializeMocapSub();
-  // pick.initializeMocapSub();
-  // place.initializeMocapSub();
-
+  Item volley("volley", &g_log, dp, "mocap_srl_volley"); // TODO! Abort if no mocap for srl-box available
+  Item drop("drop", &g_log, dp, "mocap_srl_drop");       // TODO! Abort if no mocap for srl-box available
   // declare pos data vectors
-  pick.setInitialPosition();
-  place.setInitialPosition();
-  box.setInitialPosition();
+  volley.setInitialPosition();
   drop.setInitialPosition();
 
-  const std::vector<float> pick_vec = pick.getPoseAsVector();
-  const std::vector<float> place_vec = place.getPoseAsVector();
-  const std::vector<float> box_vec = box.getPoseAsVector();
+  const std::vector<float> volley_vec = volley.getPoseAsVector();
   const std::vector<float> drop_vec = drop.getPoseAsVector();
 
   if (!quad.takeOff())
@@ -77,35 +65,24 @@ int main()
   // quad.goToPos(pick, -1.5, 0, 0.5, 0, 4000, false);
   // quad.goToPos(pick, 0, 0, 0.5, 0, 4000, false);
   // quad.goToPos(place, 0, 0, 0.5, 0, 4000, false);
-  // quad.goToPos(drop, 0, 0, 0.5, 0, 4000, false);
-  // SWOOP FOR BOX
-  quad.quickSwoop(box_vec, gripper, 2, +0.02, 0.12, 0.07, 2.0, 0, 5);
-  // quad.goToPos(2.82842, -0.490158, 2, 0, 4000, false);
-  quad.goToPos(drop_vec.at(0), -0.490158, 2, 0, 4000, true);
-  quad.goToPos(drop_vec.at(0) - 0.15, drop_vec.at(1) - 0.2, 2, 0, 3000, true);
-  quad.goToPos(drop_vec, -0.15, 0.15, 0.5, 0, 4000, true);
-  gripper.setAngleSym(80);
-  quad.goToPos(drop_vec.at(0) - 0.15, drop_vec.at(1) - 0.0, 2.75, 0, 3000, true);
-  quad.goToPos(pick_vec.at(0) - 0.11, pick_vec.at(1) + 0.18, 2.75, 0, 3000, false);
-  quad.goToPos(pick_vec, -0.11, 0.06, 0.62, 0, 4000, false);
 
-  // PICK UP BOTTLE
-  // quad.goToPos(pick_vec, -1.0, 0.035, 0.65, 0, 3000, false);
-  // quad.goToPos(pick_vec, -0.11, 0.035, 0.65, 0, 4000, false);
-  quad.goToPos(pick_vec, -0.11, 0.06, 0.28, 0, 3000, false);
-  gripper.setAngleSym(0);
-  std::this_thread::sleep_for(std::chrono::milliseconds(150));
-  quad.goToPos(pick_vec, -0.11, 0.04, 0.65, 0, 4000, true);
-  quad.goToPos(pick_vec, -1.5, 0.10, 0.65, 0, 4000, true);
-  quad.goToPos(pick_vec, -1.5, 0.10, 0, 0, 4000, true);
-  quad.goToPos(place_vec, -0.15, 0.0, 0.7, 0, 5000, false);
-  quad.goToPos(place_vec, -0.15, 0.0, 0.175, 0, 3000, false);
-  gripper.setAngleSym(60);
-  quad.goToPos(place_vec, -0.15, 0.00, 0.7, 0, 3000, false);
+  quad.goToPos(volley_vec, -0.05, 0.1, 1.2, 0, 4000, false);
+
+  quad.goToPos(volley_vec, -0.05, 0.1, 0.3, 0, 4000, false);
+
+  gripper.setAngleRotLin(175, 175, 115);
+
+  quad.goToPos(volley_vec, 0, 0, 1.2, 0, 4000, false);
+
+  quad.goToPos(drop_vec.at(0) - 0.15, drop_vec.at(1) - 0.2, 2, 0, 3000, true);
+
+  quad.goToPos(drop_vec, -0.15, 0.15, 0.5, 0, 4000, true);
+  gripper.setAngleRotLin(90, 90, 0);
+  std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
   // LAND
   quad.goToPos(-0.5, -0.5, 1.5, 0, 3000, false);
-  gripper.setAngleSym(110);
+
   quad.goToPos(-0.5, -0.5, 0.1, 0, 2000, false);
   quad.goToPos(-0.5, -0.5, 0.05, 0, 2000, false);
   quad.emergencyLand();

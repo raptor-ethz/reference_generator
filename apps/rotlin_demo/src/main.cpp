@@ -36,13 +36,16 @@ int main()
   // open gripper
   gripper.setAngleRotLin(90, 90, 0);
 
-  Item volley("volley", &g_log, dp, "mocap_srl_volley"); // TODO! Abort if no mocap for srl-box available
+  Item parcel("parcel", &g_log, dp, "mocap_srl_parcel"); // TODO! Abort if no mocap for srl-box available
   Item drop("drop", &g_log, dp, "mocap_srl_drop");       // TODO! Abort if no mocap for srl-box available
+  Item pick("pick", &g_log, dp, "mocap_srl_pick");
   // declare pos data vectors
-  volley.setInitialPosition();
+  parcel.setInitialPosition();
   drop.setInitialPosition();
+  pick.setInitialPosition();
 
-  const std::vector<float> volley_vec = volley.getPoseAsVector();
+  const std::vector<float> pick_vec = pick.getPoseAsVector();
+  const std::vector<float> parcel_vec = parcel.getPoseAsVector();
   const std::vector<float> drop_vec = drop.getPoseAsVector();
 
   if (!quad.takeOff())
@@ -66,19 +69,22 @@ int main()
   // quad.goToPos(pick, 0, 0, 0.5, 0, 4000, false);
   // quad.goToPos(place, 0, 0, 0.5, 0, 4000, false);
 
-  quad.goToPos(volley_vec, -0.05, 0.1, 1.2, 0, 4000, false);
+  quad.goToPos(parcel_vec, -0.05, 0, 1.2, 0, 4000, false);
 
-  quad.goToPos(volley_vec, -0.05, 0.1, 0.3, 0, 4000, false);
+  quad.goToPos(parcel_vec, -0.05, 0, 0.12, 0, 4000, false);
 
   gripper.setAngleRotLin(175, 175, 115);
+  std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-  quad.goToPos(volley_vec, 0, 0, 1.2, 0, 4000, false);
+  quad.goToPos(parcel_vec, 0, 0, 1.2, 0, 4000, false);
 
-  quad.goToPos(drop_vec.at(0) - 0.15, drop_vec.at(1) - 0.2, 2, 0, 3000, true);
+  quad.goToPos(pick_vec, -1, 1, 0.3, 0, 3000, false);
+  quad.goToPos(pick_vec, 0, 1, 0.3, 0, 3000, false);
+  quad.goToPos(pick_vec, 0, 1, 0, 0, 3000, false);
 
-  quad.goToPos(drop_vec, -0.15, 0.15, 0.5, 0, 4000, true);
   gripper.setAngleRotLin(90, 90, 0);
   std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  quad.goToPos(pick_vec, 0, 1, 0.6, 0, 3000, false);
 
   // LAND
   quad.goToPos(-0.5, -0.5, 1.5, 0, 3000, false);

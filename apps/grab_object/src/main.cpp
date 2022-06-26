@@ -44,7 +44,14 @@ int main()
 
   gripper.set_angle_sym(60);
   std::this_thread::sleep_for(std::chrono::milliseconds(100));
-  gripper.set_angle_sym(5);
+  gripper.set_angle_sym(5);    
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+  quad.goToPos(-0.5, -0.5, 0.1, 0, 2000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+  quad.emergency_land()
+
 
   // FOTOS
   // std::this_thread::sleep_for(std::chrono::milliseconds(6000));
@@ -66,7 +73,7 @@ int main()
   // quad.quick_swoop(box, gripper, 2, 0.05, -0.26, -0.01, 2, 100, 0);
   // quad.quick_release(drop, gripper, 1.5, 2, 2000);
 
-  quad.land(stand);
+  
 
   return 0;
 }

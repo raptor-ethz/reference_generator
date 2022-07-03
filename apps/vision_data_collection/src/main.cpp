@@ -50,54 +50,40 @@ int main() {
 
 
   std::cout << "initialized all subscribers" << std::endl;
-  // std::vector<float> mocap_box_coords = mocap_box.getPoseAsVector();
-  std::vector<float> scouting_coords = {-0.5, 0.5, 1};
+  std::vector<float> mocap_box_coords = mocap_box.getPoseAsVector();
 
-  // quad.goToPos(mocap_box_coords, -1.0, 0.0, 0.75, 0.0, 5000, false);
-  quad.goToPos(scouting_coords, 0.0, 0.0, 0.0, 0.0, 3000, false);
+ 
+ std::vector<float> x_vals = {-2.0, -1.75, -1.5, -1.25, -1.0, -0.75, -0.5};
+ float z_val = 1.25;
+  for(int i = 0; i<x_vals.size(); i++) {
+    float x_coord = x_vals.at(i);
+
+    quad.goToPos(mocap_box_coords, x_coord, 1.5, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+    quad.goToPos(mocap_box_coords, x_coord, 1.0, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+    quad.goToPos(mocap_box_coords, x_coord, 0.5, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+    quad.goToPos(mocap_box_coords, x_coord, 0.0, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+    quad.goToPos(mocap_box_coords, x_coord, -0.5, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+    quad.goToPos(mocap_box_coords, x_coord, -1.0, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+    quad.goToPos(mocap_box_coords, x_coord, -1.5, z_val, 0.0, 5000, false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+  }
 
   
-  std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-  std::vector<float> vision_box_coords = vision_box.getPoseAsVector();
-  std::cout << "going to vision coords ---------------------" << std::endl;
-  gripper.setAngleAsym(grip_open, grip_close);
-  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-  std::cout << vision_box_coords.at(0) << "\t" << vision_box_coords.at(1) << "\t" << vision_box_coords.at(2) << std::endl;
-  scouting_coords.at(1) = vision_box_coords.at(1);
-  quad.goToPos(scouting_coords, 0.0, 0.0, 0.0, 0.0, 3000, false);
+ 
   
-  // swoop
-  std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  quad.goToPos(vision_box_coords, 0.0, -0.07, 0.23, 0.0, 2000, false);
-  std::this_thread::sleep_for(std::chrono::milliseconds(20));
-  
-  
-  // std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  // quad.goToPos(vision_box_coords, 0.0, 0.0, 0.23, 0.0, 2000, false);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(1500));
-
-
-  // std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  // quad.goToPos(vision_box_coords, 0.0, 0.0, 0.23, 0.0, 2000, false);
-  // std::this_thread::sleep_for(std::chrono::milliseconds(20));
-
-  // for(int i = 0; i < 10; i++)
-  gripper.setAngleAsym(grip_close, grip_close);
-  
-  std::this_thread::sleep_for(std::chrono::milliseconds(200));
-
-
-  quad.goToPos(vision_box_coords, 0.5, 0.0, 0.75, 0.0, 5000, false);
-  std::this_thread::sleep_for(std::chrono::milliseconds(250));
-
-  // quad.goToPos(vision_box_coords, 0.0, 0.0, 0.75, 0.0, 5000, false);
-  std::this_thread::sleep_for(std::chrono::milliseconds(250));
-
   quad.goToPos(-0.5, -0.5, 1.5, 0, 4000, true);
-
-
-
   // SWOOP FOR BOX
   // quad.quickSwoop(box_vec, gripper, 2, -0.06, 0.02, 0.04, 2.0, 0, 5);
   // quad.goToPos(2.82842, -0.490158, 2, 0, 4000, false);
